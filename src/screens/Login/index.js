@@ -1,5 +1,5 @@
 import LoginCadTemplate from '../../components/LoginCadTemplate';
-import './style.css'
+import './styles.scss'
 
 function Login () {
   return (

@@ -1,6 +1,10 @@
+import './styles.scss'
+
 function LoginCadTemplate () {
   return (
-    <p>Ola mundo</p>
+    <div>
+      <p>haha</p>
+    </div>
   );
 }
 
