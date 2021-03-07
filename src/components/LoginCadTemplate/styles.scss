@@ -1,3 +1,45 @@
-p {
+#login-cad-container {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
 
+  #quadrado-branco {
+    min-height: 100vh;
+    width: 50vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #quadrado-escuro {
+    min-height: 100vh;
+    width: 50vw;
+    background-color: #1E1F28;
+    background-image: url('../../assets/images/dots-background.svg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    img {
+      width: 60%;
+      height: auto;
+    }
+    
+    p {
+      color: #FAFAFA;
+      font-family: 'Inter', sans-serif;
+      text-align: center;
+      font-size: 18px;
+      width: 55%;
+      line-height: 24px;
+    }
+  }
+}
+
+.reversed-login-cad-container {
+  flex-direction: row-reverse !important;
 }
