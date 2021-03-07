@@ -1,0 +1,41 @@
+#login-form {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  align-items: center;
+
+  img {
+    height: 64px;
+    width: auto;
+    margin-bottom: 32px;
+    margin-top: 32px;
+  }
+  h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: 32px;
+    margin-bottom: 16px;
+  }
+
+  a {
+    text-decoration: none;
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    color: #5464ff;
+    font-size: 12px;
+    align-self: flex-end;
+    margin-top: 16px;
+  }
+
+  #criar-conta-container {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 120px;
+    p {
+      font-family: 'Inter', sans-serif;
+    }
+    a {
+      align-self: center;
+    }
+  }
+}
