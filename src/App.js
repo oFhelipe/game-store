@@ -1,8 +1,8 @@
-import Login from './screens/Login'
+import Routes from './Routes'
 
 function App () {
   return (
-    <Login />
+    <Routes />
   );
 }
 
