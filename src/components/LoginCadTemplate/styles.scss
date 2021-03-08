@@ -2,19 +2,21 @@
   min-height: 100vh;
   width: 100vw;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  
 
   #quadrado-branco {
-    min-height: 100vh;
-    width: 50vw;
+    min-height: 50vh;
+    width: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-bottom: 32px;
   }
 
   #quadrado-escuro {
-    min-height: 100vh;
-    width: 50vw;
+    min-height: 50vh;
+    width: 100vw;
     background-color: #1E1F28;
     background-image: url('../../assets/images/dots-background.svg');
     background-size: cover;
@@ -25,7 +27,7 @@
     align-items: center;
 
     img {
-      width: 60%;
+      width: 30%;
       height: auto;
     }
     
@@ -38,8 +40,29 @@
       line-height: 24px;
     }
   }
+
+  .reversed-login-cad-container {
+    flex-direction: row-reverse !important;
+  }
+  
+  
+  @media (min-width:800px) { 
+    flex-direction: row;
+    .reversed-login-cad-container {
+      flex-direction: row !important;
+    }
+
+    #quadradp-brancp {
+      padding-bottom: 0px
+    }
+
+    #quadrado-escuro{
+      img {
+        width: 60%;
+        height: auto;
+      }
+    }
+  }
+
 }
 
-.reversed-login-cad-container {
-  flex-direction: row-reverse !important;
-}
