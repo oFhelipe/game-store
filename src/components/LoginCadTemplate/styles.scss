@@ -1,21 +1,20 @@
-#login-cad-container {
+.login-cad-container {
   min-height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
   
-
-  #quadrado-branco {
-    min-height: 50vh;
+  .quadrado-branco{
+    min-height: 60vh;
     width: 100vw;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-bottom: 32px;
   }
 
-  #quadrado-escuro {
-    min-height: 50vh;
+  .quadrado-escuro{
+    min-height: 40vh;
     width: 100vw;
     background-color: #1E1F28;
     background-image: url('../../assets/images/dots-background.svg');
@@ -25,44 +24,74 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-
-    img {
-      width: 30%;
-      height: auto;
-    }
-    
-    p {
-      color: #FAFAFA;
-      font-family: 'Inter', sans-serif;
-      text-align: center;
-      font-size: 18px;
-      width: 55%;
-      line-height: 24px;
-    }
+    padding-top: 16px;
+    padding-bottom: 16px;
   }
 
-  .reversed-login-cad-container {
-    flex-direction: row-reverse !important;
+  p {
+    color: #FAFAFA;
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    font-size: 15px;
+    width: 70%;
+    line-height: 16px;
   }
-  
-  
-  @media (min-width:800px) { 
-    flex-direction: row;
-    .reversed-login-cad-container {
-      flex-direction: row !important;
-    }
 
-    #quadradp-brancp {
-      padding-bottom: 0px
-    }
-
-    #quadrado-escuro{
-      img {
-        width: 60%;
-        height: auto;
-      }
-    }
+  img {
+    height: 120px;
+    width: auto;
+    margin-top: 16px;
+  }
+  p:last-child{
+    margin-top: 16px;
   }
 
 }
 
+@media (min-width: 769px) {
+
+  .reversed-login-cad-container {
+    flex-direction: row-reverse !important;
+  }
+
+  .login-cad-container {
+    flex-direction: row;
+    
+    .quadrado-escuro{
+
+    }
+  
+    p {
+
+    }
+  
+    img {
+      width: 80%;
+      height: auto;
+    }
+  
+  }
+
+}
+
+
+@media (min-width: 1024px) {
+
+  .login-cad-container {
+    
+    .quadrado-escuro{
+
+    }
+  
+    p {
+      width: 60%;
+    }
+
+    img {
+      width: 70%;
+      height: auto;
+    }
+  
+  }
+
+}
