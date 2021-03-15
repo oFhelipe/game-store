@@ -13,7 +13,7 @@ function Cadastro () {
         <h1>Criar conta</h1>
         <InputLoginCad type="text" placeholder="Usuário" required />
         <InputLoginCad type="email" placeholder="E-mail" required/>
-        <InputLoginCad type="email" placeholder="E-mail" required/>
+        <InputLoginCad type="email" placeholder="Confirmar E-mail" required/>
         <div id="password-container">
         <InputLoginCad type="password" placeholder="Senha" required/>
         <InputLoginCad type="password" placeholder="Confirmar senha" required/>
