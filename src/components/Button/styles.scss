@@ -12,4 +12,11 @@
   margin-top: 24px;
   font-family: "Inter", sans-serif;
   font-weight: 700;
+  cursor: pointer;
+  transition: background-color linear 0.5s;
+}
+
+.button:hover {
+  background-color: #f5b003;
+  color: #000;
 }
