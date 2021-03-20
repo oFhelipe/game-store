@@ -43,5 +43,10 @@ table {
 }
 
 button, input {
-	outline: none
+	outline: none;
+	border: 0;
+}
+
+button {
+	cursor: pointer;
 }
