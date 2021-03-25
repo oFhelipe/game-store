@@ -1,11 +1,29 @@
 import LancamentosBox from '../../components/LancamentosBox'
 import Footer from '../../components/Footer'
 import './styles.scss'
+import JogoItem from '../../components/JogoItem'
 
 function Home () {
   return (
     <div id="home-container" className="app-container">
       <LancamentosBox />
+      <div className="jogos-component">
+        <JogoItem />
+        <JogoItem />
+        <JogoItem />
+        <JogoItem />
+        <JogoItem />
+        <JogoItem />
+        <JogoItem />
+        <JogoItem />
+        <JogoItem />
+        <JogoItem />
+        <JogoItem />
+        <JogoItem />
+        <JogoItem />
+        <JogoItem />
+        <JogoItem />
+      </div>
       <Footer />
     </div>
   );
