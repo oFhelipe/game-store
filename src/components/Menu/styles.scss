@@ -1,0 +1,236 @@
+.menu {
+  width: 100%;
+  height: 100%;
+
+  .menu--backgroud {
+    width: 0%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    transition: 0.1s ease-out;
+  
+    .menu--drawer {
+      width: 0%; //75
+      height: 100%;
+      overflow: hidden;
+      background-color: #EEEEEE;
+      transition: width 0.35s ease-out, 0.25s linear;
+  
+      .menu--drawer-logo {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding-top: 21px;
+        overflow-x: hidden;
+  
+        .icon {
+          height: 30px;
+        }
+  
+        p {
+          display: block;
+          height: 22px;
+          font-weight: 600;
+          font-size: 15px;
+          line-height: 22px;
+          margin-top: 11px;
+        }
+      }
+  
+      .menu--drawer-elements {
+        min-width: 240px;
+        width: 100%;
+        margin-top: 33px;
+        ul {
+          margin: 0 auto;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          li {
+            height: 30px;
+            display: flex;
+            position: relative;
+            align-items: center;
+            margin: 18px 0 18px 20px;
+            cursor: pointer;
+  
+            path{
+              fill: #313131;
+            }
+            .icon {
+              width: 27px;
+              height: 27px;
+              margin-right: 20px;
+            }
+  
+            .icon-chevron {
+              position: absolute;
+              right: 20px;
+            }
+          }
+          hr {
+            border: 1px solid #9E9E9E;
+            width: 90%;
+            margin: 0 auto;
+          }
+        }
+      }
+    }
+  }
+  .menu--bar-mobile {
+    width: 100%;
+    padding-top: 15px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+
+    .menu--bar-mobile-left {
+      width: 50%;
+      display: flex;
+      align-items: center;
+      margin-left: 15px;
+
+      .menu--bar-mobile-line {
+        width: 29px;
+        height: 2px;
+        background-color: #1E1F28;
+        border-radius: 5px;
+        transform: rotate(90deg);
+        display: inline-block;
+      }
+  
+      .menu--bar-mobile-icon {
+        width: 30px;
+        height: 30px;
+        
+        path{
+          fill: #eeeeee;
+        }
+      }
+    }
+
+    .menu--bar-mobile-right {
+      width: 50%;
+      display: flex;
+      justify-content: flex-end;
+      margin-right: 30px;
+
+      .menu--bar-mobile-icon {
+        width: 30px;
+        height: 30px;
+        margin-left: 14px;
+        
+        path{
+          fill: #eeeeee;
+        }
+      }
+
+      .carshop {
+        width: 30px;
+        height: 30px;
+        position: relative;
+
+        .carshop-number {
+          width: 17px;
+          height: 17px;
+          background-color: #FFB800;
+          position: absolute;
+          right: -20px;
+          top: 0;
+          border-radius: 50px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: .75rem;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 985px) {
+  .menu {
+    width: 100%;
+    .menu--backgroud  {
+      display: block;
+      width: 100%;
+      height: 65px;
+      background-color: transparent;
+      position: inherit;
+      transition: none;
+      z-index: 0;
+      position: inherit;
+  
+      .menu--drawer {
+        width: 100%;
+        height: 65px;
+        background-color: #121212;
+        display: flex;
+    
+        .menu--drawer-logo {
+          width: 102px;
+          justify-content: center;
+          padding-top: 0px;
+    
+          .icon {
+            height: 30px;
+            path{
+              fill: #EEEEEE;
+            }
+          }
+    
+          p {
+            display: none;
+          }
+        }
+    
+        .menu--drawer-elements {
+          margin-top: 0px;
+          ul {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            margin-left: 10%;
+            li {
+              width: 200px;
+              height: 30px;
+              display: flex;
+              position: relative;
+              align-items: center;
+              margin: 18px 0 18px 20px;
+              color: #EEEEEE;
+              margin-right: 10px;
+    
+              path{
+                fill: #EEEEEE;
+              }
+              .icon {
+                width: 27px;
+                height: 27px;
+                margin-right: 20px;
+                
+              }
+    
+              .icon-chevron {
+                position: absolute;
+                right: 20px;
+              }
+            }
+            hr {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+    .menu--bar-mobile {
+      display: none;
+    }
+  }
+}
+
