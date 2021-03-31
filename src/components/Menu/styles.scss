@@ -9,7 +9,7 @@
     position: fixed;
     top: 0;
     z-index: 2;
-    transition: 0.1s ease-out;
+    transition: opacity 0.1s linear;
   
     .menu--drawer {
       width: 0%; //75
@@ -40,42 +40,159 @@
         }
       }
   
-      .menu--drawer-elements {
+      .menu--drawer-list {
         min-width: 240px;
         width: 100%;
         margin-top: 33px;
-        ul {
-          margin: 0 auto;
+
+        .menu--drawer-list-content {
           width: 100%;
           display: flex;
           flex-direction: column;
           justify-content: center;
-          li {
+
+          .content-iten {
             height: 30px;
             display: flex;
-            position: relative;
             align-items: center;
             margin: 18px 0 18px 20px;
             cursor: pointer;
-  
+
+            .icon {
+              width: 27px;
+              height: 27px;
+              margin-right: 20px;
+
+              path{
+                fill: #313131;
+              }
+            }
+
+            .icon-chevron {
+              
+            }
+            //==================
+            &.menu--drawer-list-content-promo {
+              display: flex;
+              flex-direction: column;
+              height: 100%;
+
+              .menu--drawer-list-content-promo-label {
+                width: 100%;
+                display: flex;
+                align-items: center;
+              }
+
+              .menu--drawer-list-content-promo-tag {
+                width: 100%;
+                margin-left: 50px;
+                padding-top: 5px;
+                overflow: hidden; //----
+                height: 0;        //----
+                transition: .5s ease-in-out;
+
+                li {
+                  display: flex;
+                  align-items: center;
+                }
+                .promo-icon {
+                  width: 24px;
+                  height: 24px;
+                  margin: 10px 10px 10px 5px;
+                }
+              }
+            }
+            //==================
+            &.menu--drawer-list-content-plat {
+              display: flex;
+              flex-direction: column;
+              height: 100%;
+
+              .menu--drawer-list-content-plat-label {
+                width: 100%;
+                display: flex;
+                align-items: center;
+              }
+
+              .menu--drawer-list-content-plat-types {
+                width: 100%;
+                margin-left: 50px;
+                padding-top: 5px;
+                overflow: hidden; //----
+                height: 0;     //----
+                transition: .5s ease-in-out;
+                li {
+                  display: flex;
+                  align-items: center;
+                }
+                .plat-icon {
+                  width: 24px;
+                  height: 24px;
+                  margin: 15px 15px 15px 5px;
+                }
+              }
+            }
+            //==================
+            &.menu--drawer-list-content-genre {
+              display: flex;
+              flex-direction: column;
+              height: 100%;
+
+              .menu--drawer-list-content-genre-label {
+                width: 100%;
+                display: flex;
+                align-items: center;
+              }
+
+              .menu--drawer-list-content-genres-types {
+                overflow: hidden; //----
+                height: 0;        //----
+                transition: .5s ease-in-out;
+                li {
+                  display: flex;
+                  align-items: center;
+                }
+                .genres-icon {
+                  width: 24px;
+                  height: 24px;
+                  margin: 15px 15px 15px 5px;
+                }
+              }
+            }
+          }
+        }
+
+        hr {
+          border: 1px solid #9E9E9E;
+          width: 90%;
+          margin: 0 auto;
+        }
+
+        .menu--drawer-exception-content {
+          .menu--drawer-exception {
+            display: none;
+          }
+
+          .content-iten {
+            height: 30px;
+            display: flex;
+            align-items: center;
+            margin: 18px 0 18px 20px;
+            cursor: pointer;
+
             path{
               fill: #313131;
             }
+
             .icon {
               width: 27px;
               height: 27px;
               margin-right: 20px;
             }
-  
-            .icon-chevron {
-              position: absolute;
-              right: 20px;
+            
+            &.menu--drawer-come-account {
+
             }
-          }
-          hr {
-            border: 1px solid #9E9E9E;
-            width: 90%;
-            margin: 0 auto;
           }
         }
       }
@@ -83,7 +200,7 @@
   }
   .menu--bar-mobile {
     width: 100%;
-    padding-top: 15px;
+    padding: 25px 20px;
     margin-bottom: 5px;
     display: flex;
     align-items: center;
@@ -153,84 +270,449 @@
   }
 }
 
+
+//=================================
+
 @media (min-width: 985px) {
   .menu {
-    width: 100%;
-    .menu--backgroud  {
-      display: block;
-      width: 100%;
-      height: 65px;
-      background-color: transparent;
-      position: inherit;
-      transition: none;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 25px 0;
+
+    .menu--backgroud {
+      width: 100vw;
+      height: 100%;
+      position: initial;
       z-index: 0;
-      position: inherit;
-  
+
       .menu--drawer {
         width: 100%;
-        height: 65px;
+        height: 100%;
+        overflow: inherit;
         background-color: #121212;
         display: flex;
-    
+
         .menu--drawer-logo {
           width: 102px;
           justify-content: center;
           padding-top: 0px;
-    
-          .icon {
-            height: 30px;
-            path{
-              fill: #EEEEEE;
+
+          .icon-logoShop {
+            width: 60px;
+            height: 40px;
+            path {
+              fill: #eeeeee;
             }
           }
-    
+
           p {
             display: none;
           }
         }
-    
-        .menu--drawer-elements {
-          margin-top: 0px;
-          ul {
-            display: flex;
+        .menu--drawer-list {
+          display: flex;
+          margin-top: 0;
+          align-items: center;
+
+          .menu--drawer-list-content {
             flex-direction: row;
-            justify-content: flex-start;
-            margin-left: 10%;
-            li {
-              width: 200px;
-              height: 30px;
-              display: flex;
-              position: relative;
-              align-items: center;
-              margin: 18px 0 18px 20px;
-              color: #EEEEEE;
-              margin-right: 10px;
-    
-              path{
-                fill: #EEEEEE;
+            max-width: 60%;
+            margin-left: 60px;
+
+            .content-iten {
+              margin: 0;
+              
+              &.menu--drawer-list-content-promo {
+                min-width: 160px;
+                width: 90%;
+                height: auto;
+                flex-direction: initial;
+                .menu--drawer-list-content-promo-label {
+                  p {
+                    color: #eeeeee;
+                    font-size: 0.80rem;
+                  }
+                  .icon-tag {
+                    width: 24px;
+                    height: 24px;
+                    path {
+                      fill: #eeeeee;
+                    }
+                  }
+                  .icon-chevron {
+                    width: 24px;
+                    height: 24px;
+                    path {
+                      fill: #eeeeee;
+                    }
+                  }
+                }
               }
-              .icon {
-                width: 27px;
+
+              &.menu--drawer-list-content-plat {
+                min-width: 160px;
+                width: 90%;
+                height: auto;
+                flex-direction: initial;
+                .menu--drawer-list-content-plat-label {
+                  p {
+                    color: #eeeeee;
+                    font-size: 0.80rem;
+                  }
+                  .con-logoPlataforma{
+                    width: 24px;
+                    height: 24px;
+                  }
+                  path {
+                    fill: #eeeeee;
+                  }
+                  .icon-chevron {
+                    width: 24px;
+                    height: 24px;
+                    path {
+                      fill: #eeeeee;
+                    }
+                  }
+                }
+              }
+
+              &.menu--drawer-list-content-genre {
+                min-width: 200px;
+                width: 90%;
+                height: auto;
+                flex-direction: initial;
+                p {
+                  color: #eeeeee;
+                  font-size: 0.80rem;
+                }
+                path {
+                  fill: #eeeeee;
+                }
+                .icon-chevron {
+                  width: 24px;
+                  height: 24px;
+                  path {
+                    fill: #eeeeee;
+                  }
+                }
+              }
+            } 
+          }
+          .menu--drawer-exception-content {
+            display: flex;
+            .menu--drawer-exception {
+              display: inherit;
+
+              .elements-exception-content {
+                display: flex;
+                margin-right: 40px;
+                .elements-exception-search {
+                  width: 120px;
+                  height: 30px;
+                  display: flex;
+                  background-color: #1E1F28;
+                  border-radius: 50px;
+                  justify-content: space-around;
+                  align-items: center;
+  
+                  path{
+                    fill: #EEEEEE;
+                  }
+                  .exception-inputSearch {
+                    width: 63px;
+                    background-color: transparent;
+                    outline: none;
+                    padding: 8px 0 8px 12px;
+                    color: white ;
+                  }
+                }
+                .carshop {
+                  width: 30px;
+                  height: 30px;
+                  position: relative;
+                  margin-left: 30px;
+
+                  path{
+                    fill: #EEEEEE;
+                  }
+                  
+                  .icon {
+                    width: 27px;
+                    height: 27px;
+                    margin-right: 20px;
+                  }
+          
+                  .carshop-number {
+                    width: 17px;
+                    height: 17px;
+                    background-color: #FFB800;
+                    position: absolute;
+                    right: -5px;
+                    top: 0;
+                    border-radius: 50px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: .75rem;
+                    font-weight: bold;
+                  }
+                }
+              }
+            }
+
+            .menu--drawer-come-account {
+              margin: 0;
+              .icon-astronaut {
+                width: 23px;
                 height: 27px;
-                margin-right: 20px;
-                
+
+                path {
+                  fill: #eeeeee;
+                }
               }
-    
-              .icon-chevron {
-                position: absolute;
-                right: 20px;
+              .menu--drawer-come-account-nameUser {
+                color: #fff;
+                font-size: 0.8rem;
               }
             }
-            hr {
-              display: none;
-            }
+          }
+          hr {
+            display: none;
           }
         }
       }
     }
+
     .menu--bar-mobile {
       display: none;
+      // padding-top: 0;
+      // margin-bottom: 0;
+      // margin-right: 20%;
+      // width: 100px;
+      // display: flex;
+      // justify-content: flex-end;
+      // .menu--bar-mobile-left {
+      //   display: none;
+      // }
+      // .menu--bar-mobile-right {
+      //   width: inherit;
+      //   .menu--bar-mobile-icon {
+      //     // width: 17px;
+      //     // height: 17px;
+      //   }
+      //   .carshop {
+      //     display: flex;
+      //     align-items: center;
+      //     .carshop-number {
+      //       right: -5px;
+      //     }
+      //     .menu--bar-mobile-icon {
+      //       width: 26px;
+      //       height: 24px;
+      //       margin: 0;
+      //     }
+      //   }
+      // }
     }
   }
-}
 
+}
+//   .menu {
+//     width: 100%;
+//     .menu--backgroud  {
+//       display: block;
+//       width: 100%;
+//       height: 65px;
+//       background-color: transparent;
+//       position: inherit;
+//       transition: none;
+//       z-index: 0;
+//       position: inherit;
+  
+//       .menu--drawer {
+//         width: 100%;
+//         height: 65px;
+//         background-color: #121212;
+//         display: flex;
+    
+//         .menu--drawer-logo {
+//           width: 102px;
+//           justify-content: center;
+//           padding-top: 0px;
+    
+//           .icon {
+//             height: 30px;
+//             path{
+//               fill: #EEEEEE;
+//             }
+//           }
+    
+//           p {
+//             display: none;
+//           }
+//         }
+    
+//         .menu--drawer-elements {
+//           margin-top: 0px;
+//           display: flex;
+//           ul {
+//             width: 50%;
+//             font-size: 0.90rem;
+//             display: flex;
+//             flex-direction: row;
+//             justify-content: flex-start;
+//             li {
+//               width: 200px;
+//               height: 30px;
+//               display: flex;
+//               position: relative;
+//               align-items: center;
+//               margin: 18px 0 18px 20px;
+//               color: #EEEEEE;
+//               margin-right: 10px;
+    
+//               path{
+//                 fill: #EEEEEE;
+//               }
+//               .icon {
+//                 width: 27px;
+//                 height: 27px;
+//                 margin-right: 20px;
+//               }
+    
+//               // .icon-chevron {
+//               //   position: absolute;
+//               //   right: 20px;
+//               // }
+
+              
+//             }
+//             hr {
+//               display: none;
+//             }
+//           }
+//           div {
+//             width: 100%;
+//             display: flex;
+//             align-items: center;
+//             .menu--drawer-elements-exception {
+//               width: 50%;
+//               display: inherit; 
+//               // margin-left: 85px;
+//               .elements-exception-content {
+//                 display: flex;
+  
+//                 .elements-exception-search {
+//                   width: 120px;
+//                   height: 30px;
+//                   display: flex;
+//                   background-color: #1E1F28;
+//                   border-radius: 50px;
+//                   justify-content: space-around;
+//                   align-items: center;
+
+//                   path{
+//                     fill: #EEEEEE;
+//                   }
+                  
+//                   .icon {
+//                     width: 27px;
+//                     height: 27px;
+//                     margin-right: 20px;
+//                   }
+                  
+//                   .exception-inputSearch {
+//                     width: 63px;
+//                     background-color: transparent;
+//                     outline: none;
+//                     padding: 8px 0 8px 12px;
+//                     color: white ;
+//                   }
+
+//                   .icon-search {
+//                     margin-right: 0;
+//                     padding: 4px 0;
+//                   }
+//                 }
+
+//                 .carshop {
+//                   width: 30px;
+//                   height: 30px;
+//                   position: relative;
+//                   margin-left: 40px;
+
+//                   path{
+//                     fill: #EEEEEE;
+//                   }
+                  
+//                   .icon {
+//                     width: 27px;
+//                     height: 27px;
+//                     margin-right: 20px;
+//                   }
+          
+//                   .carshop-number {
+//                     width: 17px;
+//                     height: 17px;
+//                     background-color: #FFB800;
+//                     position: absolute;
+//                     right: -5px;
+//                     top: 0;
+//                     border-radius: 50px;
+//                     display: flex;
+//                     align-items: center;
+//                     justify-content: center;
+//                     font-size: .75rem;
+//                     font-weight: bold;
+//                   }
+  
+//                   .icon-carshop {
+//                     margin-right: 0;
+//                   }
+//                 }
+//               }
+              
+//             }
+//             .button-come-account {
+//               color: white;
+//               p {
+//                 display: block;
+//               }
+//               path{
+//                 fill: #EEEEEE;
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//     .menu--bar-mobile {
+//       display: none;
+//     }
+//   }
+// }
+
+// @media (min-width: 1440px) {
+//   .menu {
+//     .menu--backgroud  {
+//       .menu--drawer {
+//         .menu--drawer-elements {
+//           ul {
+//             li {
+//               &:nth-child(3) {
+//                 margin-right: 4%;
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// @media (min-width: 1024px) {
+//   .menu {
+//     background-color: violet;
+//   }
+// }
