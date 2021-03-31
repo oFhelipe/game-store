@@ -281,7 +281,7 @@
     padding: 25px 0;
 
     .menu--backgroud {
-      width: 100vw;
+      width: 100%;
       height: 100%;
       position: initial;
       z-index: 0;
@@ -318,16 +318,17 @@
           .menu--drawer-list-content {
             flex-direction: row;
             max-width: 60%;
-            margin-left: 60px;
+            //margin-left: 60px;
 
             .content-iten {
               margin: 0;
               
               &.menu--drawer-list-content-promo {
                 min-width: 160px;
-                width: 90%;
+                width: 80%;
                 height: auto;
                 flex-direction: initial;
+                padding-left: 5%;
                 .menu--drawer-list-content-promo-label {
                   p {
                     color: #eeeeee;
@@ -352,7 +353,7 @@
 
               &.menu--drawer-list-content-plat {
                 min-width: 160px;
-                width: 90%;
+                width: 80%;
                 height: auto;
                 flex-direction: initial;
                 .menu--drawer-list-content-plat-label {
@@ -379,7 +380,7 @@
 
               &.menu--drawer-list-content-genre {
                 min-width: 200px;
-                width: 90%;
+                width: 80%;
                 height: auto;
                 flex-direction: initial;
                 p {
