@@ -62,3 +62,19 @@ button {
   position: relative;
   padding-bottom: 28vh;
 }
+
+.jogos-component {
+	display: flex;
+	flex: 1;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+}
+
+@media (min-width: 770px) {
+	.jogos-component {
+		width: 100%;
+		align-items: center;
+		margin-right: 16px;
+	}
+}
