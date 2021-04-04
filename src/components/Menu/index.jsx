@@ -8,7 +8,7 @@ import { HiChevronDown, HiMenuAlt2, HiOutlineDesktopComputer } from 'react-icons
 import { FaGamepad, FaUserAstronaut, FaShoppingCart, FaPlaystation, FaXbox } from 'react-icons/fa';
 
 function openMenu(e) {
-  let menuIcon = document.querySelector(".menu--bar-mobile-icon");
+  // let menuIcon = document.querySelector(".menu--bar-mobile-icon");
   let backgroud = document.querySelector(".menu--backgroud");
   let drawerMenu = document.querySelector(".menu--drawer");
   // if(e.target !== menuIcon) return;
@@ -23,6 +23,10 @@ function closeMenu(e) {
   backgroud.style.width = "0%";
   drawerMenu.style.width = "0%";
 };
+
+function teste() {
+  alert("roii")
+}
 
 function Menu() {
 
@@ -97,9 +101,29 @@ function Menu() {
                 </div>
 
                 <ul className="menu--drawer-list-content-genres-types">
-                  <li>Ação</li>
-                  <li>Tiro</li>
-                  <li>Terror</li>
+                  <li>
+                    <ul>
+                      <li>Aventura</li>
+                      <li>Ação</li>
+                      <li>Casual</li>
+                    </ul>
+                  </li>
+                  <hr/>
+                  <li>
+                    <ul>
+                      <li>Corrida</li>
+                      <li>Esporte</li>
+                      <li>Estrategia</li>
+                    </ul>
+                  </li>
+                  <hr/>
+                  <li>
+                    <ul>
+                      <li>Indie</li>
+                      <li>RPG</li>
+                      <li>Terror</li>
+                    </ul>
+                  </li>
                 </ul>
 
               </li>
@@ -113,10 +137,10 @@ function Menu() {
                 <div className="elements-exception-content">
                   <div className="elements-exception-search">
                     <input type="text" className="exception-inputSearch" placeholder="Buscar"/>
-                    <BiSearchAlt2 className="icon icon-search"/>
+                    <BiSearchAlt2 className="icon icon-search" onClick={teste}/>
                   </div>
                   <div className="carshop">
-                    <span className="carshop-number">2</span>
+                    <span className="carshop-number">0</span>
                     <FaShoppingCart className="icon icon-carshop"/>
                   </div>
                 </div>
@@ -150,9 +174,10 @@ function Menu() {
         </div>
 
         <div className="menu--bar-mobile-right">
-          <BiSearchAlt2 className="menu--bar-mobile-icon"/>
+          <input type="text" className="menu--bar-mobile-input" placeholder="Buscar" />
+          <BiSearchAlt2 className="menu--bar-mobile-icon icon-search"/>
           <span className="carshop">
-            <span className="carshop-number">2</span>
+            <span className="carshop-number">0</span>
             <FaShoppingCart className="menu--bar-mobile-icon"/>
           </span>
         </div>
