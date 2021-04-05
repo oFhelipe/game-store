@@ -93,7 +93,7 @@ function LancamentosBox() {
                     onClick={() => {
                       setIndice(index);
                     }}
-                    className="game-box"
+                    className={`game-box ${index === indice && "current-game-box"}`}
                   >
                     <div className="game-box-information">
                       <img src={jogo.capa} alt="capa" />
