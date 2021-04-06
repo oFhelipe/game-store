@@ -2,6 +2,7 @@ import { BrowserRouter, Route } from 'react-router-dom'
 import Login from './screens/Login'
 import Cadastro from './screens/Cadastro'
 import Home from './screens/Home'
+import Pesquisa from './screens/Pesquisa'
 
 
 function Routes () {
@@ -10,6 +11,7 @@ function Routes () {
       <Route path="/" component={Home}  exact/>
       <Route path="/login" component={Login} />
       <Route path="/cadastro" component={Cadastro} />
+      <Route path="/pesquisa" component={Pesquisa} />
     </BrowserRouter>
   );
 
