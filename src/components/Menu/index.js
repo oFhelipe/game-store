@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import './styles.scss';
 
 // icon
@@ -8,24 +9,52 @@ import { HiChevronDown, HiMenuAlt2, HiOutlineDesktopComputer } from 'react-icons
 import { FaGamepad, FaUserAstronaut, FaShoppingCart, FaPlaystation, FaXbox } from 'react-icons/fa';
 
 function openMenu(e) {
-  // let menuIcon = document.querySelector(".menu--bar-mobile-icon");
   let backgroud = document.querySelector(".menu--backgroud");
   let drawerMenu = document.querySelector(".menu--drawer");
-  // if(e.target !== menuIcon) return;
-  backgroud.style.width = "100%";
-  drawerMenu.style.width = "75%";
+  backgroud.classList.remove("bw0");
+  backgroud.classList.add("bw100");
+  drawerMenu.classList.remove("dw0");
+  drawerMenu.classList.add("dw75");
 };
 
 function closeMenu(e) {
   let backgroud = document.querySelector(".menu--backgroud");
   let drawerMenu = document.querySelector(".menu--drawer");
   if(e.target !== backgroud) return;
-  backgroud.style.width = "0%";
-  drawerMenu.style.width = "0%";
+  backgroud.classList.remove("bw100");
+  backgroud.classList.add("bw0");
+  drawerMenu.classList.remove("dw75");
+  drawerMenu.classList.add("dw0");
 };
 
 function teste() {
-  alert("roii")
+  alert("MECANISMO DE BUSCA EM MANUTENÇÃO!, DESCUPE PELO INCONVENIENTE");
+}
+
+function checkClass(className) {
+  return className === "displayHeight";
+}
+
+function openCloseItemMenu(e) {
+  let itensMenu = document.getElementsByClassName("menuItem");
+
+  Array.from(itensMenu).map((itemMenu) => {
+
+    let x = itemMenu.firstChild.className;
+    let y = e.currentTarget.className;
+
+    if(x === y) {
+      const arrayClass = Array.from(itemMenu.children[1].classList);
+      const arrayElements = Array.from(itemMenu.children);
+
+      if(Boolean(arrayClass.find(checkClass))) {
+        arrayElements[1].classList.remove("displayHeight");
+      }
+      else {
+        arrayElements[1].classList.add("displayHeight");
+      }
+    }
+  })
 }
 
 function Menu() {
@@ -34,7 +63,7 @@ function Menu() {
     <div className="menu">
       <div className="menu--backgroud" onClick={closeMenu}>
         <div className="menu--drawer">
-          <div className="menu--drawer-logo">
+          <Link to="/" className="menu--drawer-logo">
             <svg className="icon icon-logoShop" width="99" height="72" viewBox="0 0 99 72" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M17.4816 0.168881C17.3517 0.274431 13.3606 3.83538 8.60841 10.8017C-1.02588 24.9244 -0.376166 23.7 0.403487 26.3177C1.23883 29.1042 2.85383 31.4685 4.98859 33.0307C5.93532 33.7273 7.2533 34.3395 9.03537 34.8673C9.20244 34.9306 9.25812 37.9071 9.25812 48.8844V62.8382L9.7222 64.4426C10.7617 67.9257 12.7666 70.2056 15.9409 71.5145L17.1475 72H49.169H81.1905L82.5084 71.4511C85.4414 70.2267 87.372 68.0735 88.5786 64.717C88.987 63.5559 88.987 63.4715 89.0798 49.2222L89.1726 34.9095L90.5834 34.4451C91.3445 34.1918 92.384 33.7062 92.9038 33.3685C94.1104 32.5663 95.7811 30.7297 96.635 29.2731C97.3961 27.9854 98.3614 25.0511 98.3614 24.08C98.3614 23.5734 96.7464 21.0824 89.9894 11.2028C85.3857 4.46868 81.4318 0.907735 81.1719 0.569973L80.7264 -1.29876e-06H49.2061C31.8866 -1.29876e-06 17.593 0.0844403 17.4816 0.168881ZM41.5581 2.82876C41.5581 3.29318 38.6065 22.539 38.5323 22.6234C38.4951 22.6656 34.7825 22.6867 30.2716 22.6656L22.0853 22.6023L26.4476 11.9417C28.8608 6.07305 30.9028 3.27207 30.9956 2.99764L31.1627 2.53321H36.3604C40.6113 2.53321 41.5581 2.57544 41.5581 2.82876ZM71.6675 11.4561L76.2341 22.6023L68.0477 22.6656C63.5554 22.6867 59.8428 22.6656 59.7871 22.6023C59.6757 22.4967 56.7799 3.69427 56.7799 2.99764V2.53321H61.9404H67.101L71.6675 11.4561ZM18.6325 26.0221C17.4816 29.1464 15.384 31.2997 12.6923 32.1018C8.97968 33.1996 5.02572 31.1519 3.1694 27.1832C2.16699 25.0511 1.44303 25.2411 10.7432 25.2411H18.911L18.6325 26.0221ZM57.244 25.7055C56.9469 26.8243 56.0559 28.3865 55.1092 29.4842C51.6379 33.474 46.3474 33.3685 42.9689 29.252C42.115 28.1965 41.0012 26.0432 41.0012 25.4733C41.0012 25.3044 43.5258 25.2411 49.1875 25.2411H57.3553L57.244 25.7055ZM95.7626 25.4733C95.7626 26.0855 94.6859 28.1331 93.8134 29.2098C91.0661 32.5663 87.2977 33.3262 83.6965 31.2574C82.0072 30.2864 80.0581 27.6687 79.5198 25.7055L79.4084 25.2411H87.5762C93.238 25.2411 95.7626 25.3044 95.7626 25.4733ZM22.9392 31.9752C26.262 35.205 30.68 35.8383 34.6897 33.6429C36.0634 32.8829 38.6993 30.0542 39.1263 28.872C39.2562 28.5131 39.4233 28.1965 39.4975 28.1965C39.5532 28.1965 39.8688 28.682 40.1658 29.2731C41.3724 31.6163 44.1012 33.8751 46.6629 34.6351C50.784 35.8383 55.6475 33.6429 58.0422 29.4631L58.7661 28.1965L59.453 29.3575C60.7895 31.6585 62.85 33.474 65.0962 34.3606C66.8411 35.0362 70.0897 35.0362 71.7047 34.3606C74.0065 33.3896 76.1041 31.5108 77.385 29.2942L77.9976 28.2176L78.8886 29.6531C79.3713 30.4553 80.1695 31.4897 80.6707 31.9752C81.8773 33.1785 84.1049 34.4029 85.6271 34.7406L86.8708 34.9939L86.8151 48.9688L86.7594 62.9438L86.054 64.5481C85.2187 66.5114 83.8079 68.0524 82.2486 68.7701L81.1905 69.2557H49.169H17.1475L16.0894 68.7701C14.8456 68.2002 13.2121 66.5958 12.5252 65.2659C11.5043 63.2815 11.4857 63.0282 11.4857 48.4411V35.015L12.6366 34.7406C15.5882 34.0862 18.1128 32.0174 19.932 28.7876L20.2475 28.1965L21.1386 29.6531C21.6398 30.4341 22.438 31.4897 22.9392 31.9752Z" fill="#313131"/>
             <path d="M67.9684 41.9249C65.8646 42.8502 65.5018 45.9889 67.3517 47.2952C68.9659 48.4563 71.2692 47.8939 72.0672 46.134C72.5206 45.1362 72.5024 44.2835 72.0127 43.3038C71.2873 41.8886 69.4737 41.2718 67.9684 41.9249Z" fill="#313131"/>
@@ -46,21 +75,21 @@ function Menu() {
             <path d="M50.5975 58.3419C50.2077 58.8274 50.1891 59.6507 50.5418 60.1996C50.7831 60.5584 51.0801 60.6007 53.4191 60.664C55.9993 60.7273 56.0364 60.7273 56.5005 60.1996C57.0388 59.5874 57.0945 59.1018 56.6676 58.4263C56.4077 57.983 56.2592 57.9619 53.6418 57.9619C51.2101 57.9619 50.8574 58.0041 50.5975 58.3419Z" fill="#313131"/>
             </svg>
             <p>Game-Store</p>
-          </div>
+          </Link>
 
           <div className="menu--drawer-list">
             <ul className="menu--drawer-list-content">
 
-              <li className="content-iten menu--drawer-list-content-promo">
+              <li className="content-iten menu--drawer-list-content-promo menuItem">
 
-                <div className="menu--drawer-list-content-promo-label">
+                <div className="menu--drawer-list-content-promo-label"  onClick={openCloseItemMenu}>
                   <IoPricetags className="icon icon-tag" />
                   <p>Promoções</p>
                   <HiChevronDown className="icon-chevron"/>
                 </div>
                 
 
-                <ul className="menu--drawer-list-content-promo-tag">
+                <ul className="menu--drawer-list-content-promo-tag i">
                   <li><VscTag className="promo-icon"/>10%</li>
                   <li><VscTag className="promo-icon"/>20%</li>
                   <li><VscTag className="promo-icon"/>30%</li>
@@ -68,9 +97,9 @@ function Menu() {
 
               </li>
 
-              <li className="content-iten menu--drawer-list-content-plat">
+              <li className="content-iten menu--drawer-list-content-plat menuItem">
 
-                <div className="menu--drawer-list-content-plat-label">
+                <div className="menu--drawer-list-content-plat-label" onClick={openCloseItemMenu}>
                   <svg className="icon icon-logoPlataforma" width="33" height="30" viewBox="0 0 33 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M5.83761 4.13824C3.72904 4.14666 2.29145 4.15829 2.17128 4.17379C1.38213 4.27555 0.608506 4.79789 0.30101 5.43656C-0.0120271 6.08675 -0.000675349 5.74015 0.000262612 14.6338C0.00115591 23.6337 -0.0114843 23.2856 0.337825 23.9274C0.556572 24.3293 1.10149 24.8179 1.51877 24.9863L1.86061 25.1244L8.22732 25.1402L14.594 25.156V25.9508V26.7457L10.0295 26.7622L5.46496 26.7788L5.25354 26.9103C4.94323 27.1033 4.88781 27.2727 4.85747 28.1219C4.81792 29.2287 4.86443 29.5011 5.1394 29.776L5.36341 30L16.217 29.9848L27.0707 29.9696L27.2679 29.7543C27.5114 29.4886 27.5581 29.1917 27.5247 28.1204C27.5045 27.4725 27.4829 27.3371 27.3714 27.1567C27.1266 26.7604 27.381 26.7804 22.3493 26.7622L17.7848 26.7457V25.9497V25.1539H24.0374C30.8611 25.1539 30.5844 25.1669 31.1812 24.8178C31.5616 24.5953 31.9867 24.0921 32.1796 23.6361L32.3499 23.2335L32.3676 14.8726C32.3804 8.79346 32.3668 6.41552 32.3178 6.15946C32.1165 5.10693 31.283 4.31369 30.2355 4.1776C30.115 4.16195 28.6569 4.14977 26.5203 4.14078L27.0994 7.36846H29.1296V14.6363V21.9041H16.1894H3.24917V14.6363V7.36846H5.29243L5.83761 4.13824Z" fill="#313131"/>
                     <path d="M8.04079 15.7447C6.95116 15.6254 5.92187 14.9737 5.37854 14.0591C5.0862 13.5671 4.95662 13.129 4.93471 12.5589C4.92407 12.2817 4.93729 11.9347 4.96539 11.7547C4.99256 11.5805 5.08702 10.9833 5.17531 10.4276C5.2636 9.87185 5.5228 8.2387 5.7513 6.79834C6.06169 4.84191 6.19858 4.08042 6.29254 3.78773C6.76098 2.32838 8.01826 1.17566 9.57146 0.78149C11.9636 0.174412 14.9405 -0.102141 17.6165 0.0341062C19.5072 0.130373 22.1093 0.53182 23.155 0.888596C24.5061 1.34954 25.5649 2.36699 26.0416 3.66247C26.1867 4.05688 26.1632 3.92215 26.9296 8.7573C27.0554 9.5512 27.2227 10.6007 27.3012 11.0896C27.507 12.3695 27.4893 12.9456 27.2243 13.6017C26.9192 14.3569 26.2259 15.0854 25.4994 15.414C24.1451 16.0266 22.5642 15.8401 21.349 14.9244C20.6174 14.3731 20.3242 13.9258 19.8543 12.6443L19.7673 12.4072H16.1884H12.6096L12.4153 12.933C12.3085 13.2222 12.1565 13.5746 12.0775 13.716C11.2981 15.1124 9.68213 15.9245 8.04079 15.7447ZM12.3784 9.75073L12.4941 9.65126L12.5065 8.63722L12.5189 7.62317L13.4138 7.62286C14.429 7.62254 14.5855 7.59603 14.7025 7.40404C14.8147 7.22002 14.8204 6.35774 14.7108 6.1384C14.6012 5.91898 14.481 5.89594 13.4324 5.89328L12.5148 5.89098V4.94038C12.5148 3.93345 12.4934 3.80411 12.3108 3.70641C12.2671 3.68303 11.9694 3.66395 11.6482 3.66395H11.065L10.9444 3.7845L10.8239 3.90505V4.89801V5.89098L9.92686 5.89129C8.90948 5.8916 8.75319 5.91805 8.63608 6.11011C8.52388 6.29413 8.51825 7.1564 8.62783 7.37575C8.73744 7.59517 8.8576 7.61821 9.90624 7.62087L10.8239 7.62317V8.57377C10.8239 9.57157 10.8449 9.7038 11.0198 9.80565C11.0595 9.82877 11.3554 9.84825 11.6773 9.84894C12.2374 9.85017 12.2677 9.8459 12.3784 9.75073H12.3784ZM20.7279 9.7193C21.313 9.44769 21.6372 8.81449 21.511 8.19024C21.3423 7.35651 20.5306 6.86712 19.7177 7.10905C19.4375 7.19243 19.2111 7.35348 19.0215 7.60423C18.8206 7.86987 18.7422 8.10829 18.7422 8.45379C18.7422 9.07397 19.1187 9.59926 19.6988 9.78824C19.9806 9.88005 20.4492 9.84865 20.7279 9.7193ZM23.0022 6.32672C23.8913 5.87619 24.0642 4.72323 23.3447 4.04275C23.0509 3.76485 22.7418 3.65183 22.3302 3.67178C21.7714 3.69887 21.3635 3.97369 21.1209 4.48645C21.0151 4.71014 20.9953 4.80177 20.9953 5.06621C20.9953 5.33376 21.0143 5.41964 21.1241 5.64597C21.3129 6.03522 21.5243 6.23645 21.9051 6.38912C22.2118 6.51208 22.69 6.48489 23.0022 6.32672Z" fill="#313131"/>
@@ -92,9 +121,9 @@ function Menu() {
 
               </li>
 
-              <li className="content-iten menu--drawer-list-content-genre">
+              <li className="content-iten menu--drawer-list-content-genre menuItem">
 
-                <div className="menu--drawer-list-content-genre-label">
+                <div className="menu--drawer-list-content-genre-label" onClick={openCloseItemMenu}>
                   <FaGamepad className="icon icon-gamepad"/>
                   <p>Gênero de jogo</p> 
                   <HiChevronDown className="icon-chevron"/>
@@ -139,17 +168,17 @@ function Menu() {
                     <input type="text" className="exception-inputSearch" placeholder="Buscar"/>
                     <BiSearchAlt2 className="icon icon-search" onClick={teste}/>
                   </div>
-                  <div className="carshop">
+                  <Link to="/carrinho" className="carshop">
                     <span className="carshop-number">0</span>
                     <FaShoppingCart className="icon icon-carshop"/>
-                  </div>
+                  </Link>
                 </div>
               </div>
               
-              <div className="content-iten menu--drawer-come-account">
+              <Link to="/login" className="content-iten menu--drawer-come-account">
                 <FaUserAstronaut className="icon icon-astronaut"/>
                 <p className="menu--drawer-come-account-nameUser">Entrar</p>
-              </div>
+              </Link>
             </div>
           </div>
           
@@ -176,10 +205,10 @@ function Menu() {
         <div className="menu--bar-mobile-right">
           <input type="text" className="menu--bar-mobile-input" placeholder="Buscar" />
           <BiSearchAlt2 className="menu--bar-mobile-icon icon-search"/>
-          <span className="carshop">
+          <Link to="/carrinho" className="carshop">
             <span className="carshop-number">0</span>
             <FaShoppingCart className="menu--bar-mobile-icon"/>
-          </span>
+          </Link>
         </div>
       </div>
 
