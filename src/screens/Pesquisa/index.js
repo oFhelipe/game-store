@@ -1,6 +1,7 @@
 import Footer from '../../components/Footer'
 import './styles.scss'
 import JogoItem from '../../components/JogoItem'
+
 import { useLocation } from 'react-router-dom'
 import { useEffect, useState } from 'react';
 
@@ -15,8 +16,15 @@ function Pesquisa () {
 
   return (
     <div id="pesquisa-container" className="app-container">
-        <h1>{ jogo ? jogo : 'Pesquise um jogo' }</h1>
+      <h2>{jogo ? jogo : 'Pesquise um jogo'}</h2>
+      <hr />
+      <div id="filtros-box">
+
+      </div>
       <div className="jogos-component">
+        <JogoItem />
+        <JogoItem />
+        <JogoItem />
         <JogoItem />
       </div>
       <Footer />
