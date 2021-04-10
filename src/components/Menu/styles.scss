@@ -374,6 +374,7 @@
       height: 100%;
       position: initial;
       z-index: 0;
+      background-color: transparent;
 
       &.bw0 {
         width: 100%;
@@ -389,6 +390,7 @@
         overflow: inherit;
         background-color: #121212;
         display: flex;
+        transition: width 0.35s ease-out, 0.25s linear, background 0s;
 
         &.dw0 {
           width: 100%;
