@@ -1,3 +1,4 @@
+import Menu from '../../components/Menu'
 import Footer from '../../components/Footer'
 import './styles.scss'
 import JogoItem from '../../components/JogoItem'
@@ -23,6 +24,7 @@ function Pesquisa () {
 
   return (
     <div id="pesquisa-container" className="app-container">
+      <Menu />
       <h2>{jogo ? `Pesquisa: ${jogo}` : 'Pesquise um jogo'}</h2>
       <hr />
       <button onClick={handleCLickFiltrar} id="filtro-button"><HiFilter/> <p>Filtrar</p></button>
