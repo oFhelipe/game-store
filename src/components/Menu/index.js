@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { useState } from 'react'
+import { Link, useHistory } from "react-router-dom";
 import './styles.scss';
 
 // icon
@@ -27,10 +28,6 @@ function closeMenu(e) {
   drawerMenu.classList.add("dw0");
 };
 
-function searchGameByName() {
-  alert("MECANISMO DE BUSCA EM MANUTENÇÃO!, DESCUPE PELO INCONVENIENTE");
-}
-
 function checkClass(className) {
   return className === "displayHeight";
 }
@@ -58,6 +55,14 @@ function openCloseItemMenu(e) {
 }
 
 function Menu() {
+
+  const [inputText, setInputText] = useState('')
+
+  const history = useHistory();
+
+  function searchGameByName() {
+    history.push(`${inputText ? `/pesquisa?jogo=${inputText}` : '/pesquisa'}`)
+  }
 
   return(
     <div className="menu">
@@ -165,8 +170,8 @@ function Menu() {
               <div className="menu--drawer-exception">
                 <div className="elements-exception-content">
                   <div className="elements-exception-search">
-                    <input type="text" className="exception-inputSearch" placeholder="Buscar"/>
-                    <BiSearchAlt2 className="icon icon-search" onClick={searchGameByName}/>
+                    <input type="text" value={inputText} onChange={(e)=>{setInputText(e.currentTarget.value)}} className="exception-inputSearch" placeholder="Buscar"/>
+                    <BiSearchAlt2 className="icon icon-search" onClick={() => { searchGameByName() }}/>
                   </div>
                   <Link to="/carrinho" className="carshop">
                     <span className="carshop-number">0</span>
@@ -203,8 +208,8 @@ function Menu() {
         </div>
 
         <div className="menu--bar-mobile-right">
-          <input type="text" className="menu--bar-mobile-input" placeholder="Buscar" />
-          <BiSearchAlt2 className="menu--bar-mobile-icon icon-search"/>
+          <input value={inputText} onChange={(e)=>{setInputText(e.currentTarget.value)}} type="text" className="menu--bar-mobile-input" placeholder="Buscar" />
+          <BiSearchAlt2 onClick={() => { searchGameByName() }} className="menu--bar-mobile-icon icon-search"/>
           <Link to="/carrinho" className="carshop">
             <span className="carshop-number">0</span>
             <FaShoppingCart className="menu--bar-mobile-icon"/>
