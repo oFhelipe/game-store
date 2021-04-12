@@ -13,7 +13,7 @@ function Login() {
         <h1>Iniciar Sessão</h1>
         <InputLoginCad type="text" placeholder="Usuário" />
         <InputLoginCad type="password" placeholder="Senha" />
-        <Link to="#">Esqueceu sua senha?</Link>
+        <Link to="/recuperarsenha">Esqueceu sua senha?</Link>
         <Button>Entrar</Button>
         <div id="criar-conta-container">
           <p>Não tem tem uma conta?</p>
