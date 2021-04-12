@@ -3,16 +3,30 @@ import "./styles.scss";
 import logo from "../../assets/images/logo-small.svg";
 import dotBackground from "../../assets/images/dot-simple-background.svg";
 
-function EsqueciSenha () {
+function validar(e) {
+  e.preventDefault();
+  const inputEmail = document.querySelector("#id-input-email");
+  if(	inputEmail.value.length < 6 ||
+      inputEmail.value.indexOf("@") <= 1 ||
+      inputEmail.value.indexOf(".") <= 0
+    ) {
+    document.querySelector(".msg-warning").style.display = "inherit";
+    inputEmail.focus();
+    return false;
+  }
+  document.querySelector(".msg-warning").style.display = "none";
+}
+
+function RecuperarSenha () {
   return (
     <div id="screen-passlost">
       <div id="container-form">
         <form id="passlost-form">
-          <img className="icon-logo" src={logo} alt="logo" />
           <h1 className="passlost-title">Esqueceu a senha?</h1>
           <p className="passlost-text">Preencha com o e-mail que você usou para se cadastrar. Você receberá um e-mail com instruções sobre como redefinir sua senha.</p>
-          <input className="input-email" type="email" placeholder="Email"/>
-          <button className="btn-passlost">ENVIAR EMAIL</button>
+          <input className="input-email" id="id-input-email" type="email" placeholder="Email"/>
+          <span className="msg-warning">Email invalido</span>
+          <button className="btn-passlost" onClick={validar}>ENVIAR EMAIL</button>
           <div className="enter-accont-container">
             <p>Lembra sua senha?</p>
             <Link to="/login">Entrar</Link>
@@ -26,4 +40,4 @@ function EsqueciSenha () {
     </div>
   );
 }
-export default EsqueciSenha;
+export default RecuperarSenha;

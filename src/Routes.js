@@ -2,7 +2,7 @@ import { BrowserRouter, Route } from 'react-router-dom'
 import Login from './screens/Login'
 import Cadastro from './screens/Cadastro'
 import Home from './screens/Home'
-import EsqueciSenha from './screens/EsqueciSenha';
+import RecuperarSenha from './screens/RecuperarSenha';
 
 
 function Routes () {
@@ -11,7 +11,7 @@ function Routes () {
       <Route path="/" component={Home}  exact/>
       <Route path="/login" component={Login} />
       <Route path="/cadastro" component={Cadastro} />
-      <Route path="/esquecisenha" component={EsqueciSenha} />
+      <Route path="/recuperarsenha" component={RecuperarSenha} />
     </BrowserRouter>
   );
 
