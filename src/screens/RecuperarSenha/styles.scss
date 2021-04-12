@@ -79,6 +79,9 @@
   .imagens-background {
     position: relative;
     height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     .image-dots {
       width: 250px;
       height: 200px;
