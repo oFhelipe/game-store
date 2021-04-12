@@ -1,6 +1,8 @@
 .menu {
+  box-sizing: border-box;
   width: 100%;
   height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
   .menu--backgroud {
     width: 0%;
@@ -10,15 +12,49 @@
     top: 0;
     z-index: 2;
     transition: opacity 0.1s linear;
+
+    &.bw0 {
+      width: 0%;
+    }
+    &.bw100 {
+      width: 100%;
+    }
   
     .menu--drawer {
-      width: 0%; //75
+      width: 0%;
       height: 100%;
-      // overflow: hidden;
       overflow-x: hidden;
       overflow-y: scroll;
       background-color: #EEEEEE;
       transition: width 0.35s ease-out, 0.25s linear;
+
+      /* width */
+      &::-webkit-scrollbar {
+      width: 8px;
+      }
+
+      /* Track */
+      &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      }
+
+      /* Handle */
+      &::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 50px;
+      }
+
+      /* Handle on hover */
+      &::-webkit-scrollbar-thumb:hover {
+      background: #555;
+      }
+
+      &.dw0 {
+        width: 0%;
+      }
+      &.dw75 {
+        width: 75%;
+      }
   
       .menu--drawer-logo {
         width: 100%;
@@ -27,6 +63,8 @@
         flex-direction: column;
         padding-top: 21px;
         overflow-x: hidden;
+        color: #1E1F28;
+        text-decoration: none;
   
         .icon {
           height: 30px;
@@ -85,9 +123,13 @@
                 width: 100%;
                 margin-left: 50px;
                 padding-top: 5px;
-                overflow: hidden; //----
-                height: 0;        //----
-                transition: .5s ease-in-out;
+                overflow: hidden;
+                height: 0;
+                transition: height .5s ease-in-out;
+
+                &.displayHeight {
+                  height: 135px;
+                }
 
                 li {
                   display: flex;
@@ -116,9 +158,14 @@
                 width: 100%;
                 margin-left: 50px;
                 padding-top: 5px;
-                overflow: hidden; //----
-                height: 100%;     //----
+                overflow: hidden;
+                height: 0;
                 transition: .5s ease-in-out;
+
+                &.displayHeight {
+                  height: 162px;
+                }
+
                 li {
                   display: flex;
                   align-items: center;
@@ -143,11 +190,16 @@
               }
 
               .menu--drawer-list-content-genres-types {
-                overflow: hidden; //----
+                overflow: hidden;
                 width: 100%;
-                height: 100%;        //----
+                height: 0;
                 transition: .5s ease-in-out;
                 margin-top: 10px;
+
+                &.displayHeight {
+                  height: 385px;
+                }
+
                 li {
                   display: flex;
                   align-items: center;
@@ -183,6 +235,7 @@
         }
 
         .menu--drawer-exception-content {
+
           .menu--drawer-exception {
             display: none;
           }
@@ -193,6 +246,8 @@
             align-items: center;
             margin: 18px 0 18px 20px;
             cursor: pointer;
+            text-decoration: none;
+            color: #1E1F28;
 
             path{
               fill: #313131;
@@ -209,7 +264,7 @@
     }
   }
   .menu--bar-mobile {
-    width: 100%;
+    // width: 100%;
     padding: 25px 20px;
     margin-bottom: 5px;
     display: flex;
@@ -219,7 +274,6 @@
       width: 50%;
       display: flex;
       align-items: center;
-      margin-left: 15px;
 
       .menu--bar-mobile-line {
         width: 29px;
@@ -246,7 +300,6 @@
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      margin-right: 30px;
 
       .menu--bar-mobile-input {
         width: 50%;
@@ -279,6 +332,7 @@
         position: relative;
         cursor: pointer;
         margin-left: 14px;
+        
 
         .carshop-number {
           width: 17px;
@@ -293,6 +347,8 @@
           justify-content: center;
           font-size: .75rem;
           font-weight: bold;
+          color: #1E1F28;
+          text-decoration: none;
         }
       }
     }
@@ -310,12 +366,25 @@
     padding: 25px 5%;
     z-index: 1;
     height: 110px;
+    
+    .menuItem:active {
+      pointer-events: none;
+    }
 
     .menu--backgroud {
       width: 100%;
       height: 100%;
       position: initial;
       z-index: 0;
+      background-color: transparent;
+
+      &.bw0 {
+        width: 100%;
+      }
+      &.bw100 {
+        width: 100%;
+      }
+      
 
       .menu--drawer {
         width: 100%;
@@ -323,6 +392,15 @@
         overflow: inherit;
         background-color: #121212;
         display: flex;
+        transition: width 0.35s ease-out, 0.25s linear, background 0s;
+
+        &.dw0 {
+          width: 100%;
+        }
+        &.dw75 {
+          width: 100%;
+        }
+        
 
         .menu--drawer-logo {
           width: 102px;
@@ -349,7 +427,6 @@
 
           .menu--drawer-list-content {
             max-width: 35%;
-            //margin-left: 60px;
             height: 100%;
             display: flex;
             align-items: center;
@@ -360,12 +437,8 @@
               margin: 0;
               
               &.menu--drawer-list-content-promo {
-                // min-width: 160px;
-                //width: 80%;
                 width: auto;
                 display: inline-block;
-                //flex-direction: initial;
-                // padding: 0 5%;
                 margin: 0 5%;
                 position: relative;
                 
@@ -406,8 +479,14 @@
                   margin-left: 0;
                   padding: 0;
 
+                
+
+                  &.displayHeight {
+                    height: auto;
+                  }
+
                   & li {
-                    width: 100%;
+                    // width: 100%;
                     padding: 10px 15px;
                     border-radius: 5px;
                   }
@@ -424,11 +503,8 @@
               }
 
               &.menu--drawer-list-content-plat {
-                // min-width: 160px;
-                // width: 80%;
                 width: auto;
                 display: block;
-                // padding: 0 5%;
                 margin: 0 5%;
 
                 .menu--drawer-list-content-plat-label {
@@ -467,8 +543,14 @@
                   margin-left: 0;
                   padding: 0;
                   
+                
+
+                  &.displayHeight {
+                    height: auto;
+                  }
+                  
                   & li {
-                    width: 100%;
+                    // width: 100%;
                     padding: 10px 15px;
                     border-radius: 5px;
                   }
@@ -484,11 +566,8 @@
               }
 
               &.menu--drawer-list-content-genre {
-                // min-width: 200px;
-                // width: 80%;
                 width: auto;
                 display: block;
-                // padding: 0 5%;
                 margin: 0 5%;
 
                 p {
@@ -525,6 +604,10 @@
                   z-index: 3;
                   margin-left: 0;
                   border-radius: 5px;
+
+                  &.displayHeight {
+                    height: auto;
+                  }
                   
                 }
 
@@ -534,10 +617,11 @@
                   margin-top: 0;
                   li {
                     ul {
+                      width: auto;
                       margin: 0;
                       li{
-                        width: 100%;
-                        padding: 30px 40px;
+                        width: 100px;
+                        padding: 20px 40px;
                         &:hover {
                           border-radius: 5px;
                           background-color: #eeeeee;
@@ -554,18 +638,15 @@
             } 
           }
           .menu--drawer-exception-content {
-            //width: 96%;
             display: flex;
             align-items: center;
             position: absolute;
             right: 3%;
 
             .menu--drawer-exception {
-              //width: 100%;
               display: inherit;
 
               .elements-exception-content {
-                //width: 100%;
                 display: flex;
                 margin-right: 40px;
 
@@ -575,34 +656,27 @@
                   align-items: center;
                   position: relative;
                   border-radius: 50px;
-                  padding: 0 15px;
+                  padding: 0 0 0 15px;
                   cursor: pointer;
 
                   .exception-inputSearch {
-                    width: 100px;
+                    width: 175px;
+                    height: 100%;
                     background-color: transparent;
                     outline: none;
                     z-index: 2;
                     color: white;
                     padding-left: 5px;
-                    transition: .5s ease-in-out;
-                    
-
-                    &:focus {
-                      width: 100%;
-                      
-                      // position: absolute;
-                      // display: block;
-                      // right: 35%;
-                      
-                    }
                   }
 
                   .icon-search {
-
+                    width: 25px;
+                    height: 100%;
+                    margin-right: 15px;
                     path {
                       fill: #EEEEEE;
                     }
+                    
                   }
                 }
                 .carshop {
@@ -636,6 +710,8 @@
                     justify-content: center;
                     font-size: .75rem;
                     font-weight: bold;
+                    text-decoration: none;
+                    color: #1E1F28;
                   }
                 }
               }
@@ -643,6 +719,7 @@
 
             .menu--drawer-come-account {
               margin: 0;
+              text-decoration: none;
               .icon-astronaut {
                 width: 23px;
                 height: 27px;
@@ -670,10 +747,3 @@
   }
 
 }
-
-
-// @media (min-width: 1024px) {
-//   .menu {
-//     background-color: violet;
-//   }
-// }
