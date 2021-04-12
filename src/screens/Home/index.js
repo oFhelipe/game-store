@@ -1,9 +1,8 @@
-import LancamentosBox from '../../components/LancamentosBox';
-import Footer from '../../components/Footer';
+import LancamentosBox from '../../components/LancamentosBox'
+import Footer from '../../components/Footer'
 import './styles.scss'
 import JogoItem from '../../components/JogoItem'
-
-import Menu from '../../components/Menu';
+import Menu from "../../components/Menu"
 
 function Home () {
   return (

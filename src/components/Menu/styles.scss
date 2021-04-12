@@ -1,6 +1,8 @@
 .menu {
+  box-sizing: border-box;
   width: 100%;
   height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
   .menu--backgroud {
     width: 0%;
@@ -262,7 +264,7 @@
     }
   }
   .menu--bar-mobile {
-    width: 100%;
+    // width: 100%;
     padding: 25px 20px;
     margin-bottom: 5px;
     display: flex;
@@ -484,7 +486,7 @@
                   }
 
                   & li {
-                    width: 100%;
+                    // width: 100%;
                     padding: 10px 15px;
                     border-radius: 5px;
                   }
@@ -548,7 +550,7 @@
                   }
                   
                   & li {
-                    width: 100%;
+                    // width: 100%;
                     padding: 10px 15px;
                     border-radius: 5px;
                   }
@@ -615,10 +617,11 @@
                   margin-top: 0;
                   li {
                     ul {
+                      width: auto;
                       margin: 0;
                       li{
-                        width: 100%;
-                        padding: 30px 40px;
+                        width: 100px;
+                        padding: 20px 40px;
                         &:hover {
                           border-radius: 5px;
                           background-color: #eeeeee;
@@ -653,7 +656,7 @@
                   align-items: center;
                   position: relative;
                   border-radius: 50px;
-                  padding: 0 15px;
+                  padding: 0 0 0 15px;
                   cursor: pointer;
 
                   .exception-inputSearch {
@@ -667,7 +670,9 @@
                   }
 
                   .icon-search {
+                    width: 25px;
                     height: 100%;
+                    margin-right: 15px;
                     path {
                       fill: #EEEEEE;
                     }
