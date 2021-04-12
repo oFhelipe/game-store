@@ -27,7 +27,7 @@ function closeMenu(e) {
   drawerMenu.classList.add("dw0");
 };
 
-function teste() {
+function searchGameByName() {
   alert("MECANISMO DE BUSCA EM MANUTENÇÃO!, DESCUPE PELO INCONVENIENTE");
 }
 
@@ -166,7 +166,7 @@ function Menu() {
                 <div className="elements-exception-content">
                   <div className="elements-exception-search">
                     <input type="text" className="exception-inputSearch" placeholder="Buscar"/>
-                    <BiSearchAlt2 className="icon icon-search" onClick={teste}/>
+                    <BiSearchAlt2 className="icon icon-search" onClick={searchGameByName}/>
                   </div>
                   <Link to="/carrinho" className="carshop">
                     <span className="carshop-number">0</span>
