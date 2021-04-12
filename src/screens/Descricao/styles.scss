@@ -1,0 +1,88 @@
+#description-container {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #121212;
+  display: flex;
+  align-items: center;
+  // justify-content: center;
+  flex-direction: column;
+
+  #description-slide {
+    width: 80%;
+    height: 200px;
+    background-color: #212121;
+    margin: 30px 0;
+  }
+
+  #description-item-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    flex: 1;
+    
+    .jogo-item-carrinho-box {
+      width: 80%;
+    }
+  }
+
+  #description-content-container {
+    width: 80%;
+    background-color: #1E1F28;
+    padding: 20px 21px;
+    border-radius: 5px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-family: 'Nova Flat';
+    color: #eeeeee;
+    box-sizing: border-box;
+    .content-abstract {
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+      }
+      p {
+        margin-bottom: 30px;
+        line-height: 25px;
+      }
+    }
+    .description-additional {
+      h2 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+      }
+      .description-additional-container {
+
+        .description-item {
+          margin-bottom: 20px;
+  
+          h3 {
+            margin-bottom: 5px;
+          }
+  
+          p {
+            color: #9E9E9E;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@media (min-width: 900px) {
+  #description-container {
+    #description-content-container {
+      .description-additional {
+        h2 {
+          margin-bottom: 30px;
+        }
+        .description-additional-container {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+        }
+      }
+    }
+  }
+}
