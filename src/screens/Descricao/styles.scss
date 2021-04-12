@@ -8,7 +8,7 @@
   flex-direction: column;
 
   #description-slide {
-    width: 90%;
+    width: 80%;
     height: 200px;
     background-color: #212121;
     margin: 30px 0;
@@ -23,18 +23,18 @@
     flex: 1;
     
     .jogo-item-carrinho-box {
-      width: 90%;
+      width: 80%;
     }
   }
 
   #description-content-container {
-    width: 90%;
+    width: 80%;
     background-color: #1E1F28;
     padding: 20px 21px;
     border-radius: 5px;
     margin-top: 30px;
     margin-bottom: 20px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Nova Flat';
     color: #eeeeee;
     box-sizing: border-box;
     .content-abstract {
