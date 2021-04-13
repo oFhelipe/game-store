@@ -1,6 +1,7 @@
-import './styles.scss'
+import './styles.scss';
 import JogoItemCarrinho from '../../components/JogoItemCarrinho';
 import Menu from "../../components/Menu";
+import SlideImage from "../../components/SlideImage";
 
 //icone
 
@@ -15,19 +16,22 @@ function Descricao () {
     desenvolvedora: "Rockstar North",
     plataforma: 2,
     tagDeIdade: 1,
-    image: [
+    images: [
+      "https://wallpaperaccess.com/full/29202.jpg",
       "https://viciados.net/wp-content/uploads/2020/06/GTA-5-Online.jpg",
       "https://www.lendagames.com/wp-content/uploads/2020/05/ASSET-GTA-V-FREE-PC.jpg",
       "https://specials-images.forbesimg.com/imageserve/5ebd5555a69715000675b96d/960x0.jpg?fit=scale"
     ]
   }
   //map que renderiza a quantidade de icones
-
+// "https://www.youtube.com/watch?v=foUaOCzfIRU"
   return(
     <div id="description-container">
       <Menu />
       
-      <div id="description-slide"></div>
+      <div id="description-slide">
+        <SlideImage images={descricaoDoGame.images}/>
+      </div>
 
       <div id="description-item-container">
         <JogoItemCarrinho />
