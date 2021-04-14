@@ -1,12 +1,20 @@
 import './styles.scss';
-import JogoItemCarrinho from '../../components/JogoItemCarrinho';
 import Menu from "../../components/Menu";
 import SlideImage from "../../components/SlideImage";
 
-//icone
+import { HiOutlineDesktopComputer } from 'react-icons/hi';
+import { FaPlaystation, FaXbox, FaShoppingCart } from 'react-icons/fa';
+
+import TagEighteen from '../../assets/icons/TagEighteen';
+import TagFree from '../../assets/icons/TagFree';
+import TagSixteen from '../../assets/icons/TagSixteen';
+import TagTwelve from '../../assets/icons/TagTwelve';
 
 function Descricao () {
+  const platformIcons = [<HiOutlineDesktopComputer />, <FaPlaystation />, <FaXbox />]
+  const TagAge = [<TagEighteen />, <TagFree />, <TagSixteen />, <TagTwelve />]
   const descricaoDoGame = {
+    nome: "Grand theft auto V",
     resumo: "Quando um jovem traficante, um assaltante de bancos aposentado e um psicopata aterrorizante envolvem-se com alguns dos elementos mais assustadores e desequilibrados do submundo do crime, o governo dos EUA e a indústria do entretenimento, eles devem realizar golpes ousados para sobreviver nessa cidade implacável onde não podem confiar em ninguém, nem mesmo um no outro.",
     tamanho: "54GB",
     multijogadores: "1 a 30 jogadores online",
@@ -14,27 +22,49 @@ function Descricao () {
     distribuidora: "Rockstar Games",
     genero: "Ação e aventura",
     desenvolvedora: "Rockstar North",
-    plataforma: 2,
-    tagDeIdade: 1,
+    plataforma: [1,2,3],
+    tagDeIdade: [0],
     images: [
-      "https://wallpaperaccess.com/full/29202.jpg",
       "https://viciados.net/wp-content/uploads/2020/06/GTA-5-Online.jpg",
       "https://www.lendagames.com/wp-content/uploads/2020/05/ASSET-GTA-V-FREE-PC.jpg",
       "https://specials-images.forbesimg.com/imageserve/5ebd5555a69715000675b96d/960x0.jpg?fit=scale"
     ]
   }
-  //map que renderiza a quantidade de icones
-// "https://www.youtube.com/watch?v=foUaOCzfIRU"
+
+  const renderPlatform = (indexIcon, index) => {
+    return (
+      <div key={index}>{platformIcons[indexIcon]}</div>
+    )
+  }
+
+  const renderTagAge = (indexIcon, index) => {
+    return (
+      <div key={index}>{TagAge[indexIcon]}</div>
+    )
+  }
+
   return(
     <div id="description-container">
       <Menu />
-      
       <div id="description-slide">
         <SlideImage images={descricaoDoGame.images}/>
-      </div>
-
-      <div id="description-item-container">
-        <JogoItemCarrinho />
+        <div className="BoxGameAcquire">
+          <h2>{descricaoDoGame.nome}</h2>
+          <div className="price">
+            <div className="desconto">
+              <p>-25%</p>
+            </div>
+            <div className="valores">
+              <h4>R$200,00</h4>
+              <h4>R$150,00</h4>
+            </div>
+          </div>
+          <div className="Btn-container">
+            <div className="Btn-add">
+              <FaShoppingCart /> Adquirir
+            </div>
+          </div>
+        </div>
       </div>
 
       <div id="description-content-container">
@@ -78,14 +108,18 @@ function Descricao () {
 
             <div className="description-item">
               <h3>Plataforma</h3>
-              <div className="description-item-plataform">
-
+              <div className="description-item-platform">
+                <div>
+                  {descricaoDoGame.plataforma.map(renderPlatform)}
+                </div>
               </div>
             </div>
 
             <div className="description-item">
-              <h3>Idade minima para apreciação</h3>
-              <div>{descricaoDoGame.tagDeIdade}</div>
+              <h3>Classificação indicativa</h3>
+              <div>
+                {descricaoDoGame.tagDeIdade.map(renderTagAge)}
+              </div>
             </div>
           </div>
         </div>

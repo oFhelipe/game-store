@@ -4,25 +4,82 @@
   background-color: #121212;
   display: flex;
   align-items: center;
-  // justify-content: center;
   flex-direction: column;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
   #description-slide {
     width: 80%;
-    height: 300px;
-    margin: 30px 0;
-  }
+    height: auto;
+    display: block;
+    margin-top: 20px;
 
-  #description-item-container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-    justify-content: flex-start;
-    flex: 1;
-    
-    .jogo-item-carrinho-box {
-      width: 80%;
+    .BoxGameAcquire {
+      box-sizing: border-box;
+      padding: 20px;
+      width: 100%;
+      height: 100%;
+      background-color: #1E1F28;
+      border-radius: 5px;
+      font-family: 'Days One', sans-serif;
+      color: #eeeeee;
+
+      h2 {
+        font-size: 1.3rem;
+      }
+
+      .price {
+        display: flex;
+        align-items: center;
+        width: 90%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+
+        .valores {
+          h4 {
+            font-family: 'Days One', sans-serif;
+            color: #FAFAFA;
+            font-size: 1.2rem;
+          }
+          h4:first-child {
+            color: #9E9E9E;
+            font-size: .7rem;
+            text-decoration: line-through;
+          }
+        }
+        div.desconto {
+          margin-right: 16px;
+          padding-left: 8px;
+          padding-right: 8px;
+          padding-top: 2px;
+          padding-bottom: 4px;
+          border: 1px solid #FFB800;
+          border-radius: 5px;
+          p {
+            font-family: 'Nova Flat', sans-serif;
+            color: #DDD;
+            margin-top: 4px;
+            font-size: 12px;
+          }
+        }
+      }
+      .Btn-container {
+        .Btn-add {
+          cursor: pointer;
+          text-align: center;
+          padding-left: 8px;
+          padding-right: 8px;
+          padding-top: 10px;
+          padding-bottom: 10px;
+          border: 1px solid #FFB800;
+          border-radius: 5px;
+          transition: .4s ease-in;
+
+          &:hover {
+            background-color:#FFB800;
+            color: #000;
+          }
+        }
+      }
     }
   }
 
@@ -55,6 +112,27 @@
 
         .description-item {
           margin-bottom: 20px;
+          div {
+            svg {
+              margin-top: 5px;
+              width: 24px;
+              height: 24px;
+            }
+          }
+
+          .description-item-platform {
+            div {
+              display: flex;
+              margin-right: 5px;
+              div {
+                margin-top: 5px;
+                svg {
+                  width: 24px;
+                  height: 24px;
+                }
+              }
+            }
+          }
   
           h3 {
             margin-bottom: 5px;
@@ -72,6 +150,14 @@
 
 @media (min-width: 900px) {
   #description-container {
+    #description-slide {
+      display: flex;
+
+      .BoxGameAcquire {
+        margin-left: 30px;
+        width: 50%;
+      }
+    }
     #description-content-container {
       .description-additional {
         h2 {

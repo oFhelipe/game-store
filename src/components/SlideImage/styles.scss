@@ -1,27 +1,26 @@
 .slideshow-componente {
   box-sizing: border-box;
   width: 100%;
-  height: 260px;
+  height: 300px;
   position: relative;
   margin-bottom: 20px;
 
   .slideshow-container {
     width: 100%;
-    height: 100%;
-    position: absolute;
+    height: 90%;
     display: flex;
 
     .SlideImage {
       display: flex;
       width: 100%;
+      height: 300px;
       align-items: center;
       justify-content: center;
 
       img { 
         width: 100%;
-        height: auto;
-        border-radius: 5px;
-        object-fit: fill;
+        height: 100%;
+        object-fit: contain;
       }
     }
     .prev, .next {
@@ -43,7 +42,6 @@
       border-radius: 3px 0 0 3px;
     }
     
-    /* On hover, add a black background color with a little bit see-through */
     .prev:hover, .next:hover {
       background-color: rgba(0,0,0,0.8);
     }
@@ -53,11 +51,11 @@
     justify-content: center;
     align-items: flex-end;
     width: 100%;
-    height: 100%;
+    height: 10%;
     .dot {
       cursor: pointer;
-      height: 15px;
-      width: 15px;
+      height: 12px;
+      width: 12px;
       margin: 0 10px;
       background-color: #bbb;
       border-radius: 50%;
@@ -71,19 +69,10 @@
   }
 }
 
-@media (min-width: 755px) {
+@media (min-width: 900px) {
   .slideshow-componente {
     .slideshow-container {
-      .SlideImage {
-        img { 
-          display: block;
-          width: 80%;
-          height: 345px;
-        }
-      }
-    }
-    .slideshow-dots {
-      height: 355px;
+      height: 100%;
     }
   }
 }

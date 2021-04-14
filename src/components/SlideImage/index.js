@@ -19,7 +19,6 @@ function SlideImage({ images }) {
           <img src={images[selectedIndex]} alt=""/>
         </div>
         
-        
         <span className="prev" onClick={previous}>&#10094;</span>
         <span className="next" onClick={next}>&#10095;</span>
       </div>
