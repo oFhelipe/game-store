@@ -367,8 +367,14 @@
     z-index: 1;
     height: 110px;
     
-    .menuItem:active {
+    .menuItem > div{
       pointer-events: none;
+    }
+
+    .menuItem {
+      a {
+        color: initial;
+      }
     }
 
     .menu--backgroud {
