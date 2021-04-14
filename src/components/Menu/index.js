@@ -95,9 +95,9 @@ function Menu() {
                 
 
                 <ul className="menu--drawer-list-content-promo-tag i">
-                  <li><VscTag className="promo-icon"/>10%</li>
-                  <li><VscTag className="promo-icon"/>20%</li>
-                  <li><VscTag className="promo-icon"/>30%</li>
+                  <Link to="/pesquisa"><li><VscTag className="promo-icon"/>10%</li></Link>
+                  <Link to="/pesquisa"><li><VscTag className="promo-icon"/>20%</li></Link>
+                  <Link to="/pesquisa"><li><VscTag className="promo-icon"/>30%</li></Link>
                 </ul>
 
               </li>
@@ -119,9 +119,9 @@ function Menu() {
                 </div>
 
                 <ul className="menu--drawer-list-content-plat-types">
-                  <li><HiOutlineDesktopComputer className="plat-icon"/> PC</li>
-                  <li><FaPlaystation className="plat-icon"/> Playstation</li>
-                  <li><FaXbox className="plat-icon"/> Xbox</li>
+                  <Link to="/pesquisa"><li><HiOutlineDesktopComputer className="plat-icon"/> PC</li></Link>
+                  <Link to="/pesquisa"><li><FaPlaystation className="plat-icon"/> Playstation</li></Link>
+                  <Link to="/pesquisa"><li><FaXbox className="plat-icon"/> Xbox</li></Link>
                 </ul>
 
               </li>
@@ -137,25 +137,25 @@ function Menu() {
                 <ul className="menu--drawer-list-content-genres-types">
                   <li>
                     <ul>
-                      <li>Aventura</li>
-                      <li>Ação</li>
-                      <li>Casual</li>
+                      <Link to="/pesquisa"><li>Aventura</li></Link>
+                      <Link to="/pesquisa"><li>Ação</li></Link>
+                      <Link to="/pesquisa"><li>Casual</li></Link>
                     </ul>
                   </li>
                   <hr/>
                   <li>
                     <ul>
-                      <li>Corrida</li>
-                      <li>Esporte</li>
-                      <li>Estrategia</li>
+                      <Link to="/pesquisa"><li>Corrida</li></Link>
+                      <Link to="/pesquisa"><li>Esporte</li></Link>
+                      <Link to="/pesquisa"><li>Estrategia</li></Link>
                     </ul>
                   </li>
                   <hr/>
                   <li>
                     <ul>
-                      <li>Indie</li>
-                      <li>RPG</li>
-                      <li>Terror</li>
+                      <Link to="/pesquisa"><li>Indie</li></Link>
+                      <Link to="/pesquisa"><li>RPG</li></Link>
+                      <Link to="/pesquisa"><li>Terror</li></Link>
                     </ul>
                   </li>
                 </ul>
