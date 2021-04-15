@@ -78,6 +78,8 @@ function Pesquisa () {
         <JogoItem />
         <JogoItem />
         <JogoItem />
+        <JogoItem />
+        <JogoItem />
       </div>
       <Footer />
     </div>
