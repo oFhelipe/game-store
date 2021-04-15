@@ -11,6 +11,12 @@ function SlideImage({ images }) {
   const next = () => {
     selectedIndex !== images.length - 1 ? setSelectedIndex(index => index + 1) : setSelectedIndex(index => 0)
   }
+  
+  const renderDots = (index) => {
+    return (
+      <div className="dot" key={index}></div>
+    )
+  } 
 
   return(
     <div className="slideshow-componente">
@@ -23,9 +29,7 @@ function SlideImage({ images }) {
         <span className="next" onClick={next}>&#10095;</span>
       </div>
       <div className="slideshow-dots">
-        <span className="dot"></span>
-        <span className="dot"></span>
-        <span className="dot"></span>
+        {images.map(renderDots)}
       </div>
     </div>
   );

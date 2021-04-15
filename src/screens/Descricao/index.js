@@ -1,6 +1,7 @@
 import './styles.scss';
 import Menu from "../../components/Menu";
 import SlideImage from "../../components/SlideImage";
+import Footer from '../../components/Footer'
 
 import { HiOutlineDesktopComputer } from 'react-icons/hi';
 import { FaPlaystation, FaXbox, FaShoppingCart } from 'react-icons/fa';
@@ -15,19 +16,19 @@ function Descricao () {
   const TagAge = [<TagEighteen />, <TagFree />, <TagSixteen />, <TagTwelve />]
   const descricaoDoGame = {
     nome: "Grand theft auto V",
-    resumo: "Quando um jovem traficante, um assaltante de bancos aposentado e um psicopata aterrorizante envolvem-se com alguns dos elementos mais assustadores e desequilibrados do submundo do crime, o governo dos EUA e a indústria do entretenimento, eles devem realizar golpes ousados para sobreviver nessa cidade implacável onde não podem confiar em ninguém, nem mesmo um no outro.",
-    tamanho: "54GB",
-    multijogadores: "1 a 30 jogadores online",
-    lancamento: "18 de novembro de 2014",
-    distribuidora: "Rockstar Games",
+    resumo: "Em uma era na qual máquinas vagam livremente e a humanidade deixou de ser a espécie dominante, uma jovem caçadora chamada Aloy inicia uma jornada na qual desvendará o seu destino. Em um mundo pós-apocalíptico exuberante, onde a natureza retomou as ruínas de uma civilização esquecida, pequenos grupos de pessoas vivem em tribos primitivas de caçadores e coletores. O domínio delas sobre esse novo ambiente selvagem foi usurpado pelas máquinas, terríveis criaturas mecânicas de origem desconhecida.",
+    tamanho: "49GB",
+    multijogadores: "1 player",
+    lancamento: "Fevereiro 28, 2017",
+    distribuidora: "Guerrilla Games",
     genero: "Ação e aventura",
-    desenvolvedora: "Rockstar North",
-    plataforma: [1,2,3],
-    tagDeIdade: [0],
+    desenvolvedora: "Sony",
+    plataforma: [1],
+    tagDeIdade: [2],
     images: [
-      "https://viciados.net/wp-content/uploads/2020/06/GTA-5-Online.jpg",
-      "https://www.lendagames.com/wp-content/uploads/2020/05/ASSET-GTA-V-FREE-PC.jpg",
-      "https://specials-images.forbesimg.com/imageserve/5ebd5555a69715000675b96d/960x0.jpg?fit=scale"
+      "https://miro.medium.com/max/5040/1*RRmYBcrgXBC3cexlpoMBBA.jpeg",
+      "https://uploads.jovemnerd.com.br/wp-content/uploads/2020/03/desenvolvedor-de-horizon-zero-dawn-responde-as-criticas-pelo-jogo-deixar-de-ser-exclusivo.jpg",
+      "https://gmedia.playstation.com/is/image/SIEPDC/horizon-zero-dawn-screen-06-ps4-us-03oct16?$1600px$"
     ]
   }
 
@@ -48,23 +49,41 @@ function Descricao () {
       <Menu />
       <div id="description-slide">
         <SlideImage images={descricaoDoGame.images}/>
-        <div className="BoxGameAcquire">
-          <h2>{descricaoDoGame.nome}</h2>
-          <div className="price">
-            <div className="desconto">
-              <p>-25%</p>
-            </div>
-            <div className="valores">
-              <h4>R$200,00</h4>
-              <h4>R$150,00</h4>
-            </div>
+      </div>
+
+      <div className="JogoCardDescricao">
+        <div className="JogoCardDescricao-images">
+          <img className="imageMobile" src="https://i.pinimg.com/736x/46/9e/3b/469e3b46d476c3125cb81c978e81492f.jpg"/>
+          
+          <img className="jogo-item-background" src="https://i.pinimg.com/originals/f6/b7/ae/f6b7aeeca193bad95d735127cfc0e6a2.jpg"/>
+          
+          <img className="personagem" src="https://1.bp.blogspot.com/-QPZv37t7qUg/WNqoxYYpDzI/AAAAAAAAM5w/5chwbjYfiaQbYgzDOwYN1z0zVy9FAT78ACEw/s1600/horizon-zero-dawn-two-column-aloy-03-ps4-eu-22jun16.png"/>
+        </div>
+        
+        <div className="jogo-item-info-container">
+          <div className="nome-desenvolvedora-texto">
+            <h4>Horizon Zero Down</h4>
+            <p className="txtDesktopOnly">
+              Horizon Zero Dawn é um game RPG de ação de mundo aberto desenvolvido pela Guerrilla Games e publicado pela Sony Computer Entertainment para o PlayStation 4 em 2017.
+            </p>
+            <p className="txtMobileOnly">Guerrilla Games</p>
           </div>
-          <div className="Btn-container">
-            <div className="Btn-add">
+          <div className="preco-desconto">
+            <div className="preco-desconto-sub">
+              <div className="valores">
+                <h4>R$200,00</h4>
+                <h4>R$150,00</h4>
+              </div>
+              <div className="desconto">
+                <p>-25%</p>
+              </div>
+            </div>
+            <div className="Btn-containerDesktopOnly">
               <FaShoppingCart /> Adquirir
             </div>
           </div>
         </div>
+        
       </div>
 
       <div id="description-content-container">
@@ -124,6 +143,11 @@ function Descricao () {
           </div>
         </div>
       </div>
+      
+      <div className="Btn-add">
+        <FaShoppingCart /> Adquirir
+      </div>
+      <Footer />
     </div>
   );
 }

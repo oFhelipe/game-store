@@ -4,6 +4,7 @@
   background-color: #121212;
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
@@ -12,73 +13,100 @@
     height: auto;
     display: block;
     margin-top: 20px;
+  }
 
-    .BoxGameAcquire {
-      box-sizing: border-box;
-      padding: 20px;
+  .JogoCardDescricao {
+    width: 80%;
+    height: 112px;
+    background-color: #1E1F28;
+    margin-top: 16px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .JogoCardDescricao-images {
+      width: 20%;
+      height: 100%;
+      .imageMobile {
+        width: auto;
+        height: 100%;
+        object-fit: fill;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+      }
+      .jogo-item-background {
+        display: none;
+      }
+      .personagem { 
+        display: none;
+      }
+    }
+    
+    .jogo-item-info-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-left: 20px;
       width: 100%;
       height: 100%;
-      background-color: #1E1F28;
-      border-radius: 5px;
-      font-family: 'Days One', sans-serif;
-      color: #eeeeee;
-
-      h2 {
-        font-size: 1.3rem;
-      }
-
-      .price {
-        display: flex;
-        align-items: center;
-        width: 90%;
-        margin-top: 20px;
-        margin-bottom: 20px;
-
-        .valores {
-          h4 {
-            font-family: 'Days One', sans-serif;
-            color: #FAFAFA;
-            font-size: 1.2rem;
-          }
-          h4:first-child {
-            color: #9E9E9E;
-            font-size: .7rem;
-            text-decoration: line-through;
-          }
+      margin-top: 16px;
+  
+      .nome-desenvolvedora-texto {
+        h4 {
+          font-family: 'Days One', sans-serif;
+          font-size: 1rem;
+          color: #FAFAFA;
+          margin-bottom: 5px;
         }
-        div.desconto {
-          margin-right: 16px;
-          padding-left: 8px;
-          padding-right: 8px;
-          padding-top: 2px;
-          padding-bottom: 4px;
-          border: 1px solid #FFB800;
-          border-radius: 5px;
-          p {
-            font-family: 'Nova Flat', sans-serif;
-            color: #DDD;
-            margin-top: 4px;
-            font-size: 12px;
-          }
+        .txtDesktopOnly {
+          display: none;
+        }
+        .txtMobileOnly {
+          font-family: 'Nova Flat', sans-serif;
+          font-size: .8rem;
+          color: #9E9E9E;
+          margin-top: 4px;
         }
       }
-      .Btn-container {
-        .Btn-add {
-          cursor: pointer;
-          text-align: center;
-          padding-left: 8px;
-          padding-right: 8px;
-          padding-top: 10px;
-          padding-bottom: 10px;
-          border: 1px solid #FFB800;
-          border-radius: 5px;
-          transition: .4s ease-in;
-
-          &:hover {
-            background-color:#FFB800;
-            color: #000;
+      
+      .preco-desconto {
+        .preco-desconto-sub {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 95%;
+          margin-bottom: 16px;
+          .valores {
+            h4 {
+              font-family: 'Days One', sans-serif;
+              color: #FAFAFA;
+              font-size: 1.2rem;
+            }
+            h4:first-child {
+              color: #9E9E9E;
+              font-size: .7rem;
+              text-decoration: line-through;
+            }
+          }
+          .desconto {
+            padding-left: 8px;
+            padding-right: 8px;
+            padding-top: 2px;
+            padding-bottom: 4px;
+            border: 1px solid #FFB800;
+            border-radius: 5px;
+            p {
+              font-family: 'Nova Flat', sans-serif;
+              color: #DDD;
+              margin-top: 4px;
+              font-size: 12px;
+            }
           }
         }
+      }
+      .Btn-containerDesktopOnly {
+        display: none;
       }
     }
   }
@@ -145,20 +173,133 @@
       }
     }
   }
+    
+    .Btn-add {
+      box-sizing: border-box;
+      cursor: pointer;
+      text-align: center;
+      padding-left: 8px;
+      padding-right: 8px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border: 1px solid #FFB800;
+      border-radius: 5px;
+      transition: .4s ease-in;
+      margin-bottom: 20px;
+      color: #eeeeee;
+      width: 80%;
+
+      &:hover {
+        background-color:#FFB800;
+        color: #000;
+      }
+    }
+  
+
+  .footer-box {
+    position: inherit;
+  }
 }
 
-
-@media (min-width: 900px) {
+@media (min-width: 770px) {
   #description-container {
     #description-slide {
       display: flex;
-
-      .BoxGameAcquire {
-        margin-left: 30px;
-        width: 50%;
+    }
+    .JogoCardDescricao {
+      height: 190px;
+      .JogoCardDescricao-images {
+        position: relative;
+        display: block;
+        width: 28%;
+        min-width: 200px;
+        height: 100%;
+        border-top-left-radius: 10px;
+        .imageMobile{
+          display: none;
+        }
+        .jogo-item-background {
+          display: block;
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          border-radius: 5px 0 0 5px;
+          object-fit: cover;
+          
+        }
+        .personagem { 
+          display: block;
+          height: 232px;
+          width: 200px;
+          object-fit: cover;
+          object-position: top;
+          position: absolute;
+          bottom: 0;
+          right: 0;
+        }
+      }
+      .jogo-item-info-container {
+        width: 90%;
+        margin-top: 0;
+        justify-content: space-around;
+    
+        .nome-desenvolvedora-texto {
+          h4 {
+            font-size:1.3rem;
+          }
+          .txtDesktopOnly {
+            display: inherit;
+            font-family: 'Nova Flat', sans-serif;
+            font-size: .9rem;
+            color: #9E9E9E;
+            margin-top: 4px;
+          }
+          .txtMobileOnly {
+            display: none;
+          }
+        }
+    
+        .preco-desconto {
+          display: flex;
+          justify-content: space-around;
+          margin-bottom: 10px;
+          .preco-desconto-sub {
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+            width: auto;
+            margin-bottom: 0;
+            .valores {
+              margin-left: 10px;
+            }
+            
+          }
+          .Btn-containerDesktopOnly {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            max-width: 200px;
+            width: 90%;
+            text-align: center;
+            padding-left: 8px;
+            padding-right: 8px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border: 1px solid #FFB800;
+            color: #eeeeee;
+            border-radius: 5px;
+            transition: .4s ease-in;
+  
+            &:hover {
+              background-color:#FFB800;
+              color: #000;
+            }
+          }
+        }
       }
     }
     #description-content-container {
+      background-color: transparent;
       .description-additional {
         h2 {
           margin-bottom: 30px;
@@ -166,6 +307,26 @@
         .description-additional-container {
           display: grid;
           grid-template-columns: 1fr 1fr 1fr;
+          
+        }
+      }
+    }
+    .Btn-add {
+      display: none;
+    }
+  }
+}
+
+@media (min-width: 800px) {
+  #description-container {
+    .JogoCardDescricao {
+      .jogo-item-info-container {
+        .preco-desconto {
+          padding-right: 20px;
+          justify-content: flex-end;
+          .preco-desconto-sub {
+            margin-right: 40px;
+          }
         }
       }
     }

@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { useState } from 'react'
+import { Link, useHistory } from "react-router-dom";
 import './styles.scss';
 
 // icon
@@ -27,10 +28,6 @@ function closeMenu(e) {
   drawerMenu.classList.add("dw0");
 };
 
-function searchGameByName() {
-  alert("MECANISMO DE BUSCA EM MANUTENÇÃO!, DESCUPE PELO INCONVENIENTE");
-}
-
 function checkClass(className) {
   return className === "displayHeight";
 }
@@ -58,6 +55,14 @@ function openCloseItemMenu(e) {
 }
 
 function Menu() {
+
+  const [inputText, setInputText] = useState('')
+
+  const history = useHistory();
+
+  function searchGameByName() {
+    history.push(`${inputText ? `/pesquisa?jogo=${inputText}` : '/pesquisa'}`)
+  }
 
   return(
     <div className="menu">
@@ -90,9 +95,9 @@ function Menu() {
                 
 
                 <ul className="menu--drawer-list-content-promo-tag i">
-                  <li><VscTag className="promo-icon"/>10%</li>
-                  <li><VscTag className="promo-icon"/>20%</li>
-                  <li><VscTag className="promo-icon"/>30%</li>
+                  <Link to="/pesquisa"><li><VscTag className="promo-icon"/>10%</li></Link>
+                  <Link to="/pesquisa"><li><VscTag className="promo-icon"/>20%</li></Link>
+                  <Link to="/pesquisa"><li><VscTag className="promo-icon"/>30%</li></Link>
                 </ul>
 
               </li>
@@ -114,9 +119,9 @@ function Menu() {
                 </div>
 
                 <ul className="menu--drawer-list-content-plat-types">
-                  <li><HiOutlineDesktopComputer className="plat-icon"/> PC</li>
-                  <li><FaPlaystation className="plat-icon"/> Playstation</li>
-                  <li><FaXbox className="plat-icon"/> Xbox</li>
+                  <Link to="/pesquisa"><li><HiOutlineDesktopComputer className="plat-icon"/> PC</li></Link>
+                  <Link to="/pesquisa"><li><FaPlaystation className="plat-icon"/> Playstation</li></Link>
+                  <Link to="/pesquisa"><li><FaXbox className="plat-icon"/> Xbox</li></Link>
                 </ul>
 
               </li>
@@ -132,25 +137,25 @@ function Menu() {
                 <ul className="menu--drawer-list-content-genres-types">
                   <li>
                     <ul>
-                      <li>Aventura</li>
-                      <li>Ação</li>
-                      <li>Casual</li>
+                      <Link to="/pesquisa"><li>Aventura</li></Link>
+                      <Link to="/pesquisa"><li>Ação</li></Link>
+                      <Link to="/pesquisa"><li>Casual</li></Link>
                     </ul>
                   </li>
                   <hr/>
                   <li>
                     <ul>
-                      <li>Corrida</li>
-                      <li>Esporte</li>
-                      <li>Estrategia</li>
+                      <Link to="/pesquisa"><li>Corrida</li></Link>
+                      <Link to="/pesquisa"><li>Esporte</li></Link>
+                      <Link to="/pesquisa"><li>Estrategia</li></Link>
                     </ul>
                   </li>
                   <hr/>
                   <li>
                     <ul>
-                      <li>Indie</li>
-                      <li>RPG</li>
-                      <li>Terror</li>
+                      <Link to="/pesquisa"><li>Indie</li></Link>
+                      <Link to="/pesquisa"><li>RPG</li></Link>
+                      <Link to="/pesquisa"><li>Terror</li></Link>
                     </ul>
                   </li>
                 </ul>
@@ -165,8 +170,8 @@ function Menu() {
               <div className="menu--drawer-exception">
                 <div className="elements-exception-content">
                   <div className="elements-exception-search">
-                    <input type="text" className="exception-inputSearch" placeholder="Buscar"/>
-                    <BiSearchAlt2 className="icon icon-search" onClick={searchGameByName}/>
+                    <input type="text" value={inputText} onChange={(e)=>{setInputText(e.currentTarget.value)}} className="exception-inputSearch" placeholder="Buscar"/>
+                    <BiSearchAlt2 className="icon icon-search" onClick={() => { searchGameByName() }}/>
                   </div>
                   <Link to="/carrinho" className="carshop">
                     <span className="carshop-number">0</span>
@@ -203,8 +208,8 @@ function Menu() {
         </div>
 
         <div className="menu--bar-mobile-right">
-          <input type="text" className="menu--bar-mobile-input" placeholder="Buscar" />
-          <BiSearchAlt2 className="menu--bar-mobile-icon icon-search"/>
+          <input value={inputText} onChange={(e)=>{setInputText(e.currentTarget.value)}} type="text" className="menu--bar-mobile-input" placeholder="Buscar" />
+          <BiSearchAlt2 onClick={() => { searchGameByName() }} className="menu--bar-mobile-icon icon-search"/>
           <Link to="/carrinho" className="carshop">
             <span className="carshop-number">0</span>
             <FaShoppingCart className="menu--bar-mobile-icon"/>
