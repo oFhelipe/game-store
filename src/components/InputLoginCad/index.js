@@ -1,9 +1,9 @@
 import './styles.scss'
 
 function InputLoginCad (props) {
-  const { children, ...newProps } = props;
+  const { children, className ,...newProps } = props;
   return (
-    <input className="input-login-cad" {...newProps}/>
+    <input className={`input-login-cad ${className && className}`} {...newProps}/>
   );
 }
 

@@ -24,7 +24,6 @@ function Home () {
         <JogoItem />
         <JogoItem />
         <JogoItem />
-        <JogoItem />
       </div>
       <Footer />
     </div>

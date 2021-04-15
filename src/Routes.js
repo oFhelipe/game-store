@@ -5,7 +5,7 @@ import Carrinho from './screens/Carrinho'
 import Home from './screens/Home'
 import Pesquisa from './screens/Pesquisa'
 import RecuperarSenha from './screens/RecuperarSenha';
-
+import Descricao from './screens/Descricao';
 
 function Routes () {
   return (
@@ -16,6 +16,7 @@ function Routes () {
       <Route path="/pesquisa" component={Pesquisa} />
       <Route path="/recuperarsenha" component={RecuperarSenha} />
       <Route path="/carrinho" component={Carrinho} />
+      <Route path="/descricao" component={Descricao} />
     </BrowserRouter>
   );
 

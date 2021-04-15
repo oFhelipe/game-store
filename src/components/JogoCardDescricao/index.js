@@ -1,17 +1,11 @@
-import { useHistory } from 'react-router-dom'
 import './styles.scss'
 
 function JogoItem () {
-  const history = useHistory();
-  function onClickGame() {
-    history.push('/descricao');
-    window.scrollTo(0,0);
-  }
   return (
-    <div onClick={onClickGame} className="jogo-item-box">
-      <img src="https://i.pinimg.com/736x/46/9e/3b/469e3b46d476c3125cb81c978e81492f.jpg" alt="capa"/>
+    <div className="jogo-item-box">
+      <img src="https://i.pinimg.com/736x/46/9e/3b/469e3b46d476c3125cb81c978e81492f.jpg"/>
         <div className="jogo-item-background">
-          <img src="https://i.pinimg.com/originals/f6/b7/ae/f6b7aeeca193bad95d735127cfc0e6a2.jpg" alt="background"/>
+          <img src="https://i.pinimg.com/originals/f6/b7/ae/f6b7aeeca193bad95d735127cfc0e6a2.jpg"/>
         </div>
       <div className="jogo-item-info-container">
         <div className="nome-desenvolvedora">
