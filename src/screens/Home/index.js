@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import LancamentosBox from '../../components/LancamentosBox'
 import Footer from '../../components/Footer'
 import './styles.scss'
@@ -11,20 +10,20 @@ function Home () {
       <Menu />
       <LancamentosBox />
       <div className="jogos-component">
-        <Link to="descricao"><JogoItem /></Link>
-        <Link to="descricao"><JogoItem /></Link>
-        <Link to="descricao"><JogoItem /></Link>
-        <Link to="descricao"><JogoItem /></Link>
-        <Link to="descricao"><JogoItem /></Link>
-        <Link to="descricao"><JogoItem /></Link>
-        <Link to="descricao"><JogoItem /></Link>
-        <Link to="descricao"><JogoItem /></Link>
-        <Link to="descricao"><JogoItem /></Link>
-        <Link to="descricao"><JogoItem /></Link>
-        <Link to="descricao"><JogoItem /></Link>
-        <Link to="descricao"><JogoItem /></Link>
-        <Link to="descricao"><JogoItem /></Link>
-        <Link to="descricao"><JogoItem /></Link>
+        <JogoItem />
+        <JogoItem />
+        <JogoItem />
+        <JogoItem />
+        <JogoItem />
+        <JogoItem />
+        <JogoItem />
+        <JogoItem />
+        <JogoItem />
+        <JogoItem />
+        <JogoItem />
+        <JogoItem />
+        <JogoItem />
+        <JogoItem />
       </div>
       <Footer />
     </div>

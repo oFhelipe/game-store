@@ -26,7 +26,7 @@ function Descricao () {
     plataforma: [1],
     tagDeIdade: [2],
     images: [
-      "https://miro.medium.com/max/5040/1*RRmYBcrgXBC3cexlpoMBBA.jpeg",
+      "https://www.youtube.com/watch?v=9axpikOIHEo",
       "https://uploads.jovemnerd.com.br/wp-content/uploads/2020/03/desenvolvedor-de-horizon-zero-dawn-responde-as-criticas-pelo-jogo-deixar-de-ser-exclusivo.jpg",
       "https://gmedia.playstation.com/is/image/SIEPDC/horizon-zero-dawn-screen-06-ps4-us-03oct16?$1600px$"
     ]
@@ -64,8 +64,7 @@ function Descricao () {
           <div className="nome-desenvolvedora-texto">
             <h4>Horizon Zero Down</h4>
             <p className="txtDesktopOnly">
-              Horizon Zero Dawn é um game RPG de ação de mundo aberto desenvolvido pela Guerrilla Games e publicado pela Sony Computer Entertainment para o PlayStation 4 em 2017.
-            </p>
+            Em uma era na qual máquinas vagam livremente e a humanidade deixou de ser a espécie dominante, uma jovem caçadora chamada Aloy inicia uma jornada na qual desvendará o seu destino. Em um mundo pós-apocalíptico exuberante, onde a natureza retomou as ruínas de uma civilização esquecida, pequenos grupos de pessoas vivem em tribos primitivas de caçadores e coletores. O domínio delas sobre esse novo ambiente selvagem foi usurpado pelas máquinas, terríveis criaturas mecânicas de origem desconhecida.Em uma era na qual máquinas vagam livremente e a humanidade deixou de ser a espécie dominante, uma jovem caçadora chamada Aloy inicia uma jornada na qual desvendará o seu destino. Em um mundo pós-apocalíptico exuberante, onde a natureza retomou as ruínas de uma civilização esquecida, pequenos grupos de pessoas vivem em tribos primitivas de caçadores e coletores. O domínio delas sobre esse novo ambiente selvagem foi usurpado pelas máquinas, terríveis criaturas mecânicas de origem desconhecida.Em uma era na qual máquinas vagam livremente e a humanidade deixou de ser a espécie dominante, uma jovem caçadora chamada Aloy inicia uma jornada na qual desvendará o seu destino. Em um mundo pós-apocalíptico exuberante, onde a natureza retomou as ruínas de uma civilização esquecida, pequenos grupos de pessoas vivem em tribos primitivas de caçadores e coletores. O domínio delas sobre esse novo ambiente selvagem foi usurpado pelas máquinas, terríveis criaturas mecânicas de origem desconhecida.</p>
             <p className="txtMobileOnly">Guerrilla Games</p>
           </div>
           <div className="preco-desconto">
@@ -79,7 +78,7 @@ function Descricao () {
               </div>
             </div>
             <div className="Btn-containerDesktopOnly">
-              <FaShoppingCart /> Adquirir
+              <FaShoppingCart /> <p>Adquirir</p>
             </div>
           </div>
         </div>

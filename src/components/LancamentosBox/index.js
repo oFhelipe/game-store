@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
 import "./styles.scss";
 import Button from '../Button'
+import { useHistory } from 'react-router-dom'
 
+function LancamentosBox () {
 
-function LancamentosBox() {
+  const history = useHistory();
+
   const lancamentos = [
     {
       nome: "Cyberpunk 2077",
@@ -36,6 +39,16 @@ function LancamentosBox() {
       preco: 35.0,
     },
     {
+      nome: "Horizon Zero Down",
+      background: 'https://i.pinimg.com/originals/f6/b7/ae/f6b7aeeca193bad95d735127cfc0e6a2.jpg',
+      personagem: 'https://1.bp.blogspot.com/-QPZv37t7qUg/WNqoxYYpDzI/AAAAAAAAM5w/5chwbjYfiaQbYgzDOwYN1z0zVy9FAT78ACEw/s1600/horizon-zero-dawn-two-column-aloy-03-ps4-eu-22jun16.png',
+      capa:'https://i.pinimg.com/736x/46/9e/3b/469e3b46d476c3125cb81c978e81492f.jpg',
+      desenvolvedora: "FromSoftware",
+      descricao:
+        "Em uma era na qual máquinas vagam livremente e a humanidade deixou de ser a espécie dominante, uma jovem caçadora chamada Aloy inicia uma jornada na qual desvendará o seu destino. Em um mundo pós-apocalíptico exuberante, onde a natureza retomou as ruínas de uma civilização esquecida, pequenos grupos de pessoas vivem em tribos primitivas de caçadores e coletores. O domínio delas sobre esse novo ambiente selvagem foi usurpado pelas máquinas, terríveis criaturas mecânicas de origem desconhecida.Em uma era na qual máquinas vagam livremente e a humanidade deixou de ser a espécie dominante, uma jovem caçadora chamada Aloy inicia uma jornada na qual desvendará o seu destino. Em um mundo pós-apocalíptico exuberante, onde a natureza retomou as ruínas de uma civilização esquecida, pequenos grupos de pessoas vivem em tribos primitivas de caçadores e coletores. O domínio delas sobre esse novo ambiente selvagem foi usurpado pelas máquinas, terríveis criaturas mecânicas de origem desconhecida.Em uma era na qual máquinas vagam livremente e a humanidade deixou de ser a espécie dominante, uma jovem caçadora chamada Aloy inicia uma jornada na qual desvendará o seu destino. Em um mundo pós-apocalíptico exuberante, onde a natureza retomou as ruínas de uma civilização esquecida, pequenos grupos de pessoas vivem em tribos primitivas de caçadores e coletores. O domínio delas sobre esse novo ambiente selvagem foi usurpado pelas máquinas, terríveis criaturas mecânicas de origem desconhecida.",
+      preco: 100.0,
+    },
+    {
       nome: "Naruto Storm 4",
       background: 'https://img3.goodfon.com/wallpaper/nbig/f/82/naruto-storm-4-ultimate-ninja.jpg',
       personagem: 'https://i.pinimg.com/originals/9e/c6/e1/9ec6e148fd1a2a3c7a3eb6e4fbee48ba.png',
@@ -44,16 +57,6 @@ function LancamentosBox() {
       descricao:
         "Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.",
       preco: 150.0,
-    },
-    {
-      nome: "Gta V",
-      background: 'https://i.pinimg.com/originals/bb/88/ce/bb88cec3170cf3296685814ee0738192.jpg',
-      personagem: 'https://pngimg.com/uploads/gta/gta_PNG51.png',
-      capa:'https://upload.wikimedia.org/wikipedia/pt/8/80/Grand_Theft_Auto_V_capa.png',
-      desenvolvedora: "RockStar Games",
-      descricao:
-        "Jogo de 2015 que liderou as vendas e que jogo foda, pena que ninguem joga mais o online",
-      preco: 80.0,
     },
   ];
 
@@ -64,6 +67,11 @@ function LancamentosBox() {
     }, 3000);
     return () => clearTimeout(teste);
   }, [indice]);
+
+  function goToDescPage() {
+    history.push(`/descricao`);
+    window.scrollTo(0, 0);
+  }
 
   return (
       <div id="lancamentos-box">
@@ -79,7 +87,7 @@ function LancamentosBox() {
                   <p>{lancamentos[indice].descricao}</p>
                   <div>
                     <h4>R${lancamentos[indice].preco}</h4>
-                    <Button>Ver mais</Button>
+                    <Button onClick={goToDescPage}>Ver mais</Button>
                   </div>
                 </div>
                 <img src={lancamentos[indice].personagem} alt="personagem" />
