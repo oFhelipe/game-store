@@ -52,14 +52,14 @@ function Cadastro ({ history }) {
         confirmPassword,
         birthday
       })
-      //mostrar modal de usuario cadastrado com sucesso
+      //[FAZER] mostrar modal de usuario cadastrado com sucesso
 
-      //esperar alguns segundos para redirecionar para o login
-      //localStorage.setItem('user', JSON.stringify([...response]))
-      history.push('/login')
+      setTimeout(() => {
+        history.push('/login')
+      }, 2000);
 
     } catch (error) {
-      window.alert(error.response.data.message);
+      window.alert(error.response.data.message ? error.response.data.message : 'ERRO');
     }
     
   }
