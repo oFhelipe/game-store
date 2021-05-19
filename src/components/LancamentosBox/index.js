@@ -2,12 +2,22 @@ import { useState, useEffect } from "react";
 import "./styles.scss";
 import Button from '../Button'
 import { useHistory } from 'react-router-dom'
+import api from '../../services/api'
 
 function LancamentosBox () {
 
   const history = useHistory();
+  const [lancamentos, setLancamentos] = useState([])
 
-  const lancamentos = [
+  useEffect(()=>{
+    async function onInit(){
+      const theLancamentos = await api.get('/game/lancamentos');
+      setLancamentos(theLancamentos.data);
+    }
+    onInit()
+  },[])
+
+  const lancamentos2 = [
     {
       nome: "Cyberpunk 2077",
       background: 'https://www.cyberpunk.net/build/images/media/screenshots/Cyberpunk2077_Love_this_town_RGB-en-8aea899f.jpg',
@@ -69,7 +79,7 @@ function LancamentosBox () {
   }, [indice]);
 
   function goToDescPage() {
-    history.push(`/descricao`);
+    history.push(`/descricao/${lancamentos[indice].id}`);
     window.scrollTo(0, 0);
   }
 
@@ -82,15 +92,15 @@ function LancamentosBox () {
               <span />
               <div id="lancamento-info-container">
                 <div>
-                  <h2>{lancamentos[indice].nome}</h2>
-                  <h3>{lancamentos[indice].desenvolvedora}</h3>
-                  <p>{lancamentos[indice].descricao}</p>
+                  <h2>{lancamentos[indice].name}</h2>
+                  <h3>{lancamentos[indice].developer}</h3>
+                  <p>{lancamentos[indice].description}</p>
                   <div>
-                    <h4>R${lancamentos[indice].preco}</h4>
+                    <h4>R${lancamentos[indice].price}</h4>
                     <Button onClick={goToDescPage}>Ver mais</Button>
                   </div>
                 </div>
-                <img src={lancamentos[indice].personagem} alt="personagem" />
+                <img src={lancamentos[indice].character} alt="personagem" />
               </div>
             </div>
             <div id="lancamento-jogos-lista">
@@ -104,11 +114,11 @@ function LancamentosBox () {
                     className={`game-box ${index === indice && "current-game-box"}`}
                   >
                     <div className="game-box-information">
-                      <img src={jogo.capa} alt="capa" />
+                      <img src={jogo.cover} alt="capa" />
                       <div>
-                          <h4>{jogo.nome}</h4>
-                          <h4>{jogo.desenvolvedora}</h4>
-                        <p>R$ {jogo.preco}</p>
+                          <h4>{jogo.name}</h4>
+                          <h4>{jogo.developer}</h4>
+                        <p>R$ {jogo.price}</p>
                       </div>
                     </div>
                     {index === indice ? (
