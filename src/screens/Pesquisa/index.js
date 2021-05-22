@@ -66,10 +66,10 @@ function Pesquisa () {
         <div className="filtro-item">
           <label>Ordernar por</label>
           <select name="ordernar">
-            <option value="todos" >Lançados recentemente</option>
-            <option value="todos" >Lançados há mais tempo</option>
-            <option value="todos" >Menor preço</option>
-            <option value="todos" >Maior preço</option>
+            <option value="novo" >Lançados recentemente</option>
+            <option value="antigo" >Lançados há mais tempo</option>
+            <option value="crescente" >Menor preço</option>
+            <option value="decrescente" >Maior preço</option>
           </select>
         </div>
       </div>
