@@ -4,7 +4,7 @@ import './styles.scss'
 import JogoItem from '../../components/JogoItem'
 
 import { useLocation } from 'react-router-dom'
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'; 
 
 import { HiFilter } from 'react-icons/hi'
 

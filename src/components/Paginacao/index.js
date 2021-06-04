@@ -9,7 +9,7 @@ function Paginacao({onClickPrev, onClickNext, onClickPage, count, limit, page}) 
         let pages = []
        for (let index = 0; index < count/limit; index++) {
            pages.push(index + 1);
-       }
+       } 
        setPagesArray(pages)
     }
 
