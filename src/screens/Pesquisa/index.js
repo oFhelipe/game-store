@@ -8,6 +8,8 @@ import { useEffect, useState } from 'react';
 
 import { HiFilter } from 'react-icons/hi'
 
+import api from '../../services/api'
+
 function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
@@ -15,71 +17,125 @@ function useQuery() {
 function Pesquisa () {
   const query = useQuery();
 
-  const [jogo, setJogo] = useState(query.get("jogo") || null);
+  const [game, setGame] = useState(query.get("jogo") || null);
+  const [games, setGames] = useState([]);
   const [ filtrosVisiveis, setFiltrosVisiveis ] = useState(false);
+  
+  const [ promotion, setPromotion ] = useState(null);
+  const [ platform, setPlatform ] = useState(null);
+  const [ gender, setGender ] = useState(null);
+  const [ order, setOrder ] = useState(null);
 
   function handleCLickFiltrar () {
     setFiltrosVisiveis(!filtrosVisiveis);
   }
 
+  async function getGames(){
+      try {
+        const response = await api.get('/game', {
+          params: {
+            promotion,
+            platform,
+            gender,
+            order,
+            game
+          }
+        })
+        setGames(response.data);
+      } catch (error) {
+        console.log(error)
+      }
+  }
+
+  function handleChangeFilter(filter, value){
+      switch (filter) {
+        case 'promotion':
+          setPromotion(value)
+          break;
+
+        case 'platform':
+          setPlatform(value)
+        break;
+        
+        case 'gender':
+          setGender(value)
+        break;
+       
+        case 'order':
+          setOrder(value)
+        break;
+
+        default:
+          break;
+      }
+  }
+
+  useEffect(()=>{
+    getGames();
+  }, [])
+
+  useEffect(()=>{
+    getGames();
+  }, [promotion, gender, platform, game, order])
+
   return (
     <div id="pesquisa-container" className="app-container">
       <Menu />
-      <h2>{jogo ? `Pesquisa: ${jogo}` : 'Pesquise um jogo'}</h2>
+      <h2>{game ? `Pesquisa: ${game}` : 'Pesquise um jogo'}</h2>
       <hr />
-      <button onClick={handleCLickFiltrar} id="filtro-button"><HiFilter/> <p>Filtrar</p></button>
+      <button onClick={handleCLickFiltrar} id="filtro-button"><HiFilter/> <p>{filtrosVisiveis ? "Esconder" : "Mostrar"} filtros</p></button>
       <div id="filtros-box" className={`${filtrosVisiveis ? "mostrar-filtros" : "esconder-filtros"}`}>
         <div className="filtro-item">
           <label>Promoções</label>
-          <select name="promocoes">
-            <option value="sem" >Sem filtro</option>
+          <select name="promocoes" onChange={(e)=>{ handleChangeFilter('promotion', e.currentTarget.value) }}>
+            <option value="sem"> Sem filtro</option>
             <option value="10" >Até 10%</option>
             <option value="20" >Até 20%</option>
-            <option value="30" >Até 10%</option>
+            <option value="30" >Até 30%</option>
             <option value="todas" >Todas as promoções</option>
           </select>
         </div>
         <div className="filtro-item">
           <label>Plataforma</label>
-          <select name="plataforma">
+          <select name="plataforma" onChange={(e)=>{ handleChangeFilter('platform', e.currentTarget.value) }}>
             <option value="todas" >Todas as plataformas</option>
-            <option value="pc" >Pc</option>
-            <option value="xbox" >Xbox</option>
-            <option value="playstation" >Playstation</option>
+            <option value="0" >Pc</option>
+            <option value="1" >Xbox</option>
+            <option value="2" >Playstation</option>
           </select>
         </div>
         <div className="filtro-item">
           <label>Gênero</label>
-          <select name="genero">
-            <option value="todos" >Todos</option>
+          <select name="genero" onChange={(e)=>{ handleChangeFilter('gender', e.currentTarget.value) }}>
+            <option value="sem" >Todos</option>
             <option value="aventura" >Aventura</option>
-            <option value="acao" >Ação</option>
+            <option value="ação" >Ação</option>
             <option value="casual" >Casual</option>
             <option value="corrida" >Corrida</option>
             <option value="esporte" >Esporte</option>
-            <option value="estrategia" >Estratégia</option>
-            <option value="Indie" >Indie</option>
+            <option value="estratégia" >Estratégia</option>
+            <option value="indie" >Indie</option>
             <option value="rpg" >RPG</option>
-            <option value="similacao" >Simulação</option>
+            <option value="simulação" >Simulação</option>
           </select>
         </div>
         <div className="filtro-item">
           <label>Ordernar por</label>
-          <select name="ordernar">
-            <option value="todos" >Lançados recentemente</option>
-            <option value="todos" >Lançados há mais tempo</option>
-            <option value="todos" >Menor preço</option>
-            <option value="todos" >Maior preço</option>
+          <select name="ordernar" onChange={(e)=>{ handleChangeFilter('order', e.currentTarget.value) }}>
+          <option value="sem" >Sem Ordem</option>
+            <option value="novo" >Lançados recentemente</option>
+            <option value="antigo" >Lançados há mais tempo</option>
+            <option value="crescente" >Menor preço</option>
+            <option value="decrescente" >Maior preço</option>
           </select>
         </div>
       </div>
       <div className="jogos-component">
-        <JogoItem />
-        <JogoItem />
-        <JogoItem />
-        <JogoItem />
-        <JogoItem />
-        <JogoItem />
+        {
+          games.map((jogo)=>{
+            return <JogoItem game={jogo} />
+          })
+        }
       </div>
       <Footer />
     </div>
