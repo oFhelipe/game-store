@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useHistory } from "react-router-dom";
 import './styles.scss';
 
@@ -8,9 +8,10 @@ import { VscTag } from 'react-icons/vsc';
 import { BiSearchAlt2 } from 'react-icons/bi';
 import { HiChevronDown, HiMenuAlt2, HiOutlineDesktopComputer } from 'react-icons/hi';
 import { FaGamepad, FaUserAstronaut, FaShoppingCart, FaPlaystation, FaXbox } from 'react-icons/fa';
-import IconShop from '../../assets/icons/IconShop.js';
-import MobileIcon from '../../assets/icons/MobileIcon.js';
-import IconPlatform from '../../assets/icons/IconPlatform.js';
+import IconShop from "../../assets/icons/IconShop";
+import IconPlatform from "../../assets/icons/IconPlatform";
+import IconMobile from "../../assets/icons/IconMobile";
+
 
 function openMenu(e) {
   let backgroud = document.querySelector(".menu--backgroud");
@@ -57,6 +58,30 @@ function openCloseItemMenu(e) {
   })
 }
 
+function clearStorage() {
+  localStorage.clear();
+  window.location.reload();
+}
+
+//sair
+function logout(username) {
+  return (
+    <Link to="" className="content-iten menu--drawer-come-account">
+      <FaUserAstronaut className="icon icon-astronaut" onClick={() => clearStorage()}/>
+      <p className="menu--drawer-come-account-nameUser" onClick={() => clearStorage()}>Sair</p>
+    </Link>
+  )
+}
+//entrar
+function signIn(username) {
+  return (
+    <Link to="/login" className="content-iten menu--drawer-come-account">
+      <FaUserAstronaut className="icon icon-astronaut"/>
+      <p className="menu--drawer-come-account-nameUser">Entrar</p>
+    </Link>
+  )
+} 
+
 function Menu() {
 
   const [inputText, setInputText] = useState('');
@@ -68,6 +93,13 @@ function Menu() {
   }
 
   const [userLogged, setUserLogged] = useState('');
+
+  useEffect(() => {
+    if(localStorage.user) {
+      setUserLogged(JSON.parse(localStorage.user).data.user.username);
+    } 
+  });
+
 
   
 
@@ -169,11 +201,9 @@ function Menu() {
                   </Link>
                 </div>
               </div>
-              
-              <Link to="/login" className="content-iten menu--drawer-come-account">
-                <FaUserAstronaut className="icon icon-astronaut"/>
-                <p className="menu--drawer-come-account-nameUser">Entrar</p>
-              </Link>
+                {
+                  userLogged ? logout(userLogged) : signIn(userLogged)
+                }
             </div>
           </div>
           
@@ -185,7 +215,9 @@ function Menu() {
         <div className="menu--bar-mobile-left">
           <HiMenuAlt2 className="menu--bar-mobile-icon" onClick={openMenu}/>
           <span className="menu--bar-mobile-line"></span>
-          <MobileIcon />
+          <Link to="/" className="menu--drawer-logo">
+            <IconMobile />
+          </Link>
         </div>
 
         <div className="menu--bar-mobile-right">

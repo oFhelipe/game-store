@@ -53,11 +53,11 @@ function Descricao () {
 
       <div className="JogoCardDescricao">
         <div className="JogoCardDescricao-images">
-          <img className="imageMobile" src="https://i.pinimg.com/736x/46/9e/3b/469e3b46d476c3125cb81c978e81492f.jpg"/>
+          <img className="imageMobile" alt="imagem Mobile" src="https://i.pinimg.com/736x/46/9e/3b/469e3b46d476c3125cb81c978e81492f.jpg"/>
           
-          <img className="jogo-item-background" src="https://i.pinimg.com/originals/f6/b7/ae/f6b7aeeca193bad95d735127cfc0e6a2.jpg"/>
+          <img className="jogo-item-background" alt="imagem Background" src="https://i.pinimg.com/originals/f6/b7/ae/f6b7aeeca193bad95d735127cfc0e6a2.jpg"/>
           
-          <img className="personagem" src="https://1.bp.blogspot.com/-QPZv37t7qUg/WNqoxYYpDzI/AAAAAAAAM5w/5chwbjYfiaQbYgzDOwYN1z0zVy9FAT78ACEw/s1600/horizon-zero-dawn-two-column-aloy-03-ps4-eu-22jun16.png"/>
+          <img className="personagem" alt="Imagem personagem" src="https://1.bp.blogspot.com/-QPZv37t7qUg/WNqoxYYpDzI/AAAAAAAAM5w/5chwbjYfiaQbYgzDOwYN1z0zVy9FAT78ACEw/s1600/horizon-zero-dawn-two-column-aloy-03-ps4-eu-22jun16.png"/>
         </div>
         
         <div className="jogo-item-info-container">
