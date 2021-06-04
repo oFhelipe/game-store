@@ -2,11 +2,11 @@ import { useHistory } from "react-router-dom";
 import "./styles.scss";
 
 function JogoItem({ game }) {
-  const { background, name, price, discount, cover, developer, character } =
+  const { id, background, name, price, discount, cover, developer, character } =
     game;
   const history = useHistory();
   function onClickGame() {
-    history.push("/descricao");
+    history.push(`/descricao/${id}`);
     window.scrollTo(0, 0);
   }
   return (
