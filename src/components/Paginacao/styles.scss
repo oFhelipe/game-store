@@ -1,0 +1,54 @@
+.paginacao-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 32px;
+
+    .pagination-button {
+        height: 32px;
+        width: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+        margin-left: 16px;
+        cursor: pointer;
+        font-family: 'Days One', sans-serif;
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+
+    .prev-next-button {
+        border:solid 1p #1e1f28;
+        background-color: #1e1f28;
+        color:#FAFAFA;
+        transition: all 0.5s;
+        &:hover {
+            background-color: #181920;  
+        }
+    }
+
+    .page-button-inactive {
+        border:solid 1px #1e1f28;
+        background-color: transparent;
+        color:#FAFAFA;
+        transition: all 0.5s;
+        &:hover {
+            background-color: #424453;  
+        }
+    }
+    .page-button-active {
+        border:solid 1px #FFB800;
+        background-color: #FFB800;
+        color:#313131;
+        font-weight: bold;
+        transition: all 0.5s;
+        &:hover {
+            background-color: #d69a00;
+            color: #000; 
+        }
+    }
+}

@@ -8,6 +8,9 @@ import { useEffect, useState } from 'react';
 
 import { HiFilter } from 'react-icons/hi'
 
+import api from '../../services/api'
+import Paginacao from '../../components/Paginacao'
+
 function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
@@ -17,10 +20,78 @@ function Pesquisa () {
 
   const [jogo, setJogo] = useState(query.get("jogo") || null);
   const [ filtrosVisiveis, setFiltrosVisiveis ] = useState(false);
+  const [ page, setPage ] = useState(1);
+  const [ count, setCount ] = useState(0);
+  const [ promotion, setPromotion ] = useState(null);
+  const [ platform, setPlatform ] = useState(null);
+  const [ gender, setGender ] = useState(null);
+  const [ order, setOrder ] = useState(null);
 
   function handleCLickFiltrar () {
     setFiltrosVisiveis(!filtrosVisiveis);
   }
+
+  async function getGames(){
+      try {
+        const response = await api.get('/game', {
+          params: {
+            promotion,
+            platform,
+            gender,
+            order,
+            game,
+            page
+          }
+        })
+        setGames(response.data.games);
+        setCount(response.data.count);
+      } catch (error) {
+        console.log(error)
+      }
+  }
+
+  function handleChangeFilter(filter, value){
+      switch (filter) {
+        case 'promotion':
+          setPromotion(value)
+          break;
+
+        case 'platform':
+          setPlatform(value)
+        break;
+        
+        case 'gender':
+          setGender(value)
+        break;
+       
+        case 'order':
+          setOrder(value)
+        break;
+
+        default:
+          break;
+      }
+  }
+
+  function handleClickNext(){
+    setPage(page + 1)
+  }
+  
+  function handleClickPrev(){
+    setPage(page - 1 >= 1 ? page - 1 : 1)
+  }
+  
+  function handleClickPage(pageNumber){
+    setPage(pageNumber)
+  }
+
+  useEffect(()=>{
+    getGames();
+  }, [])
+
+  useEffect(()=>{
+    getGames();
+  }, [promotion, gender, platform, game, order, page])
 
   return (
     <div id="pesquisa-container" className="app-container">
@@ -74,12 +145,18 @@ function Pesquisa () {
         </div>
       </div>
       <div className="jogos-component">
-        <JogoItem />
-        <JogoItem />
-        <JogoItem />
-        <JogoItem />
-        <JogoItem />
-        <JogoItem />
+        {
+          games.map((jogo)=>{
+            return <JogoItem game={jogo} />
+          })
+        }
+        <Paginacao 
+            onClickNext={handleClickNext}
+            onClickPrev={handleClickPrev}
+            onClickPage={handleClickPage}
+            count={count} 
+            limit={6} 
+            page={page}/>
       </div>
       <Footer />
     </div>
