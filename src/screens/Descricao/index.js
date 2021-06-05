@@ -54,6 +54,7 @@ function Descricao () {
 
       <div className="JogoCardDescricao">
         <div className="JogoCardDescricao-images">
+
           <img className="imageMobile" alt="" src={game.cover}/>
           
           <img className="jogo-item-background" alt="" src={game.background}/>

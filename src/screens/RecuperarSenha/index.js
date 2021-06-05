@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
 import "./styles.scss";
-import logo from "../../assets/images/logo-small.svg";
 import dotBackground from "../../assets/images/dot-simple-background.svg";
 
 function validar(e) {

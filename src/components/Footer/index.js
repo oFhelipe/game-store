@@ -9,10 +9,10 @@ function Footer () {
         <p>Por favor não nos prendam ;-;</p>
         <span />
         <div className="social-medias-container">
-          <a href="https://www.linkedin.com/in/fhelipe-rodrigues-b57a52196/" target="_blank"><AiFillLinkedin  className="social-icon" /></a>
-          <a href="https://github.com/oFhelipe" target="_blank"><AiOutlineGithub  className="social-icon" /></a>
-          <a href="https://www.linkedin.com/in/weslley-ferreira-61a75a188/" target="_blank"><AiFillLinkedin  className="social-icon" /></a>
-          <a href="https://github.com/wdwf" target="_blank"><AiOutlineGithub  className="social-icon" /></a>
+          <a href="https://www.linkedin.com/in/fhelipe-rodrigues-b57a52196/" target="_blank" rel="noreferrer"><AiFillLinkedin  className="social-icon" /></a>
+          <a href="https://github.com/oFhelipe" target="_blank" rel="noreferrer"><AiOutlineGithub  className="social-icon" /></a>
+          <a href="https://www.linkedin.com/in/weslley-ferreira-61a75a188/" target="_blank" rel="noreferrer"><AiFillLinkedin  className="social-icon" /></a>
+          <a href="https://github.com/wdwf" target="_blank" rel="noreferrer"><AiOutlineGithub  className="social-icon" /></a>
         </div>
       </div>
     </div>

@@ -29,7 +29,7 @@ function JogoItem({ game }) {
           )}
         </div>
       </div>
-      <img className="personagem" src={character} />
+      <img className="personagem" alt="Personagem" src={character} />
     </div>
   );
 }
