@@ -16,7 +16,7 @@ function Routes () {
       <Route path="/pesquisa" component={Pesquisa} />
       <Route path="/recuperarsenha" component={RecuperarSenha} />
       <Route path="/carrinho" component={Carrinho} />
-      <Route path="/descricao" component={Descricao} />
+      <Route path="/descricao/:gameId" component={Descricao} />
     </BrowserRouter>
   );
 
