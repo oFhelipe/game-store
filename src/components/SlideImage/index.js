@@ -28,8 +28,7 @@ function SlideImage({ images }) {
       <div className="slideshow-container">
         <div className="SlideImage">
           {images[selectedIndex].indexOf('youtube.com') > 0 ? 
-          <iframe src="https://www.youtube.com/embed/9axpikOIHEo">
-          </iframe>
+          <iframe title="Video" src={ images[selectedIndex].replace('watch?v=','embed/') }></iframe>
           : 
             < img src={images[selectedIndex]} alt=""/>
           }

@@ -4,11 +4,12 @@ import './styles.scss'
 import JogoItem from '../../components/JogoItem'
 
 import { useLocation } from 'react-router-dom'
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'; 
 
 import { HiFilter } from 'react-icons/hi'
 
 import api from '../../services/api'
+import Paginacao from '../../components/Paginacao'
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -20,7 +21,8 @@ function Pesquisa () {
   const [game, setGame] = useState(query.get("jogo") || null);
   const [games, setGames] = useState([]);
   const [ filtrosVisiveis, setFiltrosVisiveis ] = useState(false);
-  
+  const [ page, setPage ] = useState(1);
+  const [ count, setCount ] = useState(0);
   const [ promotion, setPromotion ] = useState(null);
   const [ platform, setPlatform ] = useState(null);
   const [ gender, setGender ] = useState(null);
@@ -38,10 +40,12 @@ function Pesquisa () {
             platform,
             gender,
             order,
-            game
+            game,
+            page
           }
         })
-        setGames(response.data);
+        setGames(response.data.games);
+        setCount(response.data.count);
       } catch (error) {
         console.log(error)
       }
@@ -70,13 +74,25 @@ function Pesquisa () {
       }
   }
 
+  function handleClickNext(){
+    setPage(page + 1)
+  }
+  
+  function handleClickPrev(){
+    setPage(page - 1 >= 1 ? page - 1 : 1)
+  }
+  
+  function handleClickPage(pageNumber){
+    setPage(pageNumber)
+  }
+
   useEffect(()=>{
     getGames();
   }, [])
 
   useEffect(()=>{
     getGames();
-  }, [promotion, gender, platform, game, order])
+  }, [promotion, gender, platform, game, order, page])
 
   return (
     <div id="pesquisa-container" className="app-container">
@@ -136,6 +152,13 @@ function Pesquisa () {
             return <JogoItem game={jogo} />
           })
         }
+        <Paginacao 
+            onClickNext={handleClickNext}
+            onClickPrev={handleClickPrev}
+            onClickPage={handleClickPage}
+            count={count} 
+            limit={6} 
+            page={page}/>
       </div>
       <Footer />
     </div>
