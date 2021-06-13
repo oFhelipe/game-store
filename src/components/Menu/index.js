@@ -96,7 +96,7 @@ function Menu() {
 
   useEffect(() => {
     if(localStorage.user) {
-      setUserLogged(JSON.parse(localStorage.user).data.user.username);
+      setUserLogged(JSON.parse(localStorage.user).user.username);
     } 
   });
 
