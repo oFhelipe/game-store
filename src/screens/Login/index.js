@@ -25,7 +25,7 @@ function Login ({ history }) {
         username,
         password
       })
-      localStorage.setItem('user', JSON.stringify({...response}))
+      localStorage.setItem('user', JSON.stringify(response.data))
       history.push('/')
     } catch (error) {
       window.alert(error);

@@ -96,9 +96,12 @@ function Menu() {
 
   useEffect(() => {
     if(localStorage.user) {
-      setUserLogged(JSON.parse(localStorage.user).data.user.username);
+      setUserLogged(JSON.parse(localStorage.user).user.username);
     } 
   });
+
+  const carrinhoString = localStorage.getItem('carrinho') || '[]';
+  const carrinho = JSON.parse(carrinhoString);
 
 
   
@@ -196,7 +199,7 @@ function Menu() {
                     <BiSearchAlt2 className="icon icon-search" onClick={() => { searchGameByName() }}/>
                   </div>
                   <Link to="/carrinho" className="carshop">
-                    <span className="carshop-number">0</span>
+                    <span className="carshop-number">{ carrinho.length }</span>
                     <FaShoppingCart className="icon icon-carshop"/>
                   </Link>
                 </div>
@@ -224,7 +227,7 @@ function Menu() {
           <input value={inputText} onChange={(e)=>{setInputText(e.currentTarget.value)}} type="text" className="menu--bar-mobile-input" placeholder="Buscar" />
           <BiSearchAlt2 onClick={() => { searchGameByName() }} className="menu--bar-mobile-icon icon-search"/>
           <Link to="/carrinho" className="carshop">
-            <span className="carshop-number">0</span>
+            <span className="carshop-number">{ carrinho.length }</span>
             <FaShoppingCart className="menu--bar-mobile-icon"/>
           </Link>
         </div>

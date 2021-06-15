@@ -13,7 +13,7 @@ import TagSixteen from '../../assets/icons/TagSixteen';
 import TagTwelve from '../../assets/icons/TagTwelve';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-
+import { useHistory } from "react-router-dom";
 
 function Descricao () {
   const platformIcons = [<HiOutlineDesktopComputer />, <FaPlaystation />, <FaXbox />]
@@ -34,6 +34,32 @@ function Descricao () {
   
   const [ game, setGame ] = useState({});
   const params = useParams();
+  const history = useHistory();
+
+  function handleClickAdiquirir () {
+    const isLoggedIn = localStorage.getItem('user');
+
+    if (!isLoggedIn) {
+      localStorage.clear()
+      history.push('/login')
+      return
+    }
+
+    const carrinhoString = localStorage.getItem('carrinho') || '[]'
+    const carrinho = JSON.parse(carrinhoString)
+    const gameIndex = carrinho.indexOf(game.id)
+
+    if (gameIndex === -1) {
+      carrinho.push(game.id)
+      const newCarrinhoString = JSON.stringify(carrinho)
+      localStorage.setItem('carrinho',newCarrinhoString)
+    }
+
+
+    history.push('/carrinho')
+
+  }
+
 
   useEffect(() => {
     async function init() {
@@ -77,7 +103,7 @@ function Descricao () {
                 {
                   game.discount ? <h4>R${ game.price }</h4> : <h4> </h4>
                 }
-                <h4>R${ parseFloat(game.price - (game.price * game.discount))  }</h4>
+                <h4>R${ parseFloat(game.price - (game.price * game.discount)).toFixed(2)  }</h4>
               </div>
               
                 {
@@ -88,7 +114,7 @@ function Descricao () {
                 }
               
             </div>
-            <div className="Btn-containerDesktopOnly">
+            <div onClick={handleClickAdiquirir} className="Btn-containerDesktopOnly">
               <FaShoppingCart /> <p>Adquirir</p>
             </div>
           </div>
@@ -154,7 +180,7 @@ function Descricao () {
         </div>
       </div>
       
-      <div className="Btn-add">
+      <div onClick={handleClickAdiquirir} className="Btn-add">
         <FaShoppingCart /> Adquirir
       </div>
       <Footer />
