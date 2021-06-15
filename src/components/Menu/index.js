@@ -102,7 +102,6 @@ function Menu() {
 
   const carrinhoString = localStorage.getItem('carrinho') || '[]';
   const carrinho = JSON.parse(carrinhoString);
-  console.log(carrinho.length);
 
 
   
