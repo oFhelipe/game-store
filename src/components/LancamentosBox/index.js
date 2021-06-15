@@ -7,7 +7,22 @@ import api from '../../services/api'
 function LancamentosBox () {
   const history = useHistory()
 
+<<<<<<< HEAD
   const theLancamentos = [
+=======
+  const history = useHistory();
+  const [lancamentos, setLancamentos] = useState([])
+
+  useEffect(()=>{
+    async function onInit(){
+      const theLancamentos = await api.get('/game/lancamentos');
+      setLancamentos(theLancamentos.data);
+    }
+    onInit()
+  },[])
+
+  const lancamentos2 = [
+>>>>>>> 6f70eec525601362c93d0bc74f50006a1cb45140
     {
       nome: 'Cyberpunk 2077',
       background:
@@ -90,9 +105,15 @@ function LancamentosBox () {
     init()
   }, [])
 
+<<<<<<< HEAD
   function goToDescPage () {
     history.push(`/descricao/${lancamentos[indice].id}`)
     window.scrollTo(0, 0)
+=======
+  function goToDescPage() {
+    history.push(`/descricao/${lancamentos[indice].id}`);
+    window.scrollTo(0, 0);
+>>>>>>> 6f70eec525601362c93d0bc74f50006a1cb45140
   }
 
   return (
