@@ -8,12 +8,15 @@ import Menu from '../../components/Menu'
 import { AiFillCreditCard } from 'react-icons/ai'
 import { RiBillFill } from 'react-icons/ri'
 import Pix  from '../../assets/icons/Pix.js'
+import { useHistory } from "react-router-dom";
 
 
 function Carrinho () {
   const [metodoPagamento,settMetodoPagamento] = useState("");
   const [ games , setGames ] = useState([]);
   const [ total , setTotal ] = useState(0);
+
+  const history = useHistory();
 
   function handleOnClickDelete (gameId) {
     const carrinhoString = localStorage.getItem('carrinho') || '[]'
@@ -47,6 +50,8 @@ function Carrinho () {
       metodoPagamento
     })
     alert(`${response.data.message}, o resumo da compra será enviado para o seu email!!!`);
+    localStorage.setItem('carrinho', "[]");
+    history.push("/");
 
   }
 
