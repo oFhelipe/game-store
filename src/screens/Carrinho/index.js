@@ -40,11 +40,14 @@ function Carrinho () {
     const userString = localStorage.getItem('user')
 
     const {user} = JSON.parse(userString)
-    await api.post('/game/order',{
+    const response = await api.post('/game/order',{
       user,
       games,
-      total
+      total,
+      metodoPagamento
     })
+    alert(`${response.data.message}, o resumo da compra será enviado para o seu email!!!`);
+
   }
 
   useEffect(() => {

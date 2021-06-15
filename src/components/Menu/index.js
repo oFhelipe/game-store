@@ -228,7 +228,7 @@ function Menu() {
           <input value={inputText} onChange={(e)=>{setInputText(e.currentTarget.value)}} type="text" className="menu--bar-mobile-input" placeholder="Buscar" />
           <BiSearchAlt2 onClick={() => { searchGameByName() }} className="menu--bar-mobile-icon icon-search"/>
           <Link to="/carrinho" className="carshop">
-            <span className="carshop-number">0</span>
+            <span className="carshop-number">{ carrinho.length }</span>
             <FaShoppingCart className="menu--bar-mobile-icon"/>
           </Link>
         </div>
