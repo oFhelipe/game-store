@@ -100,6 +100,10 @@ function Menu() {
     } 
   });
 
+  const carrinhoString = localStorage.getItem('carrinho') || '[]';
+  const carrinho = JSON.parse(carrinhoString);
+  console.log(carrinho.length);
+
 
   
 
@@ -196,7 +200,7 @@ function Menu() {
                     <BiSearchAlt2 className="icon icon-search" onClick={() => { searchGameByName() }}/>
                   </div>
                   <Link to="/carrinho" className="carshop">
-                    <span className="carshop-number">0</span>
+                    <span className="carshop-number">{ carrinho.length }</span>
                     <FaShoppingCart className="icon icon-carshop"/>
                   </Link>
                 </div>

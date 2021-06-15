@@ -47,7 +47,7 @@ function Descricao () {
 
     const carrinhoString = localStorage.getItem('carrinho') || '[]'
     const carrinho = JSON.parse(carrinhoString)
-    console.log(carrinho)
+    //console.log(carrinho)
     const gameIndex = carrinho.indexOf(game.id)
 
     if (gameIndex === -1) {
