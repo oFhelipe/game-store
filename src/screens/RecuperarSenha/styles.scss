@@ -13,6 +13,10 @@
       flex-direction: column;
       align-items: center;
       
+      .password {
+        margin: 8px 0;
+      }
+
       .passlost-title {
         color: #EEEEEE;
         font-size: 2rem;
@@ -121,7 +125,7 @@
         margin-bottom: 30px;
 
         .passlost-text {
-          margin-bottom: 35px;
+          margin-bottom: 64px;
         }
         
         .input-email {
