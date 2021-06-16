@@ -128,9 +128,9 @@ function Menu() {
                 
 
                 <ul className="menu--drawer-list-content-promo-tag i">
-                  <Link to="/pesquisa"><li><VscTag className="promo-icon"/>10%</li></Link>
-                  <Link to="/pesquisa"><li><VscTag className="promo-icon"/>20%</li></Link>
-                  <Link to="/pesquisa"><li><VscTag className="promo-icon"/>30%</li></Link>
+                  <Link to="/pesquisa?promotion=10"><li><VscTag className="promo-icon"/>10%</li></Link>
+                  <Link to="/pesquisa?promotion=20"><li><VscTag className="promo-icon"/>20%</li></Link>
+                  <Link to="/pesquisa?promotion=30"><li><VscTag className="promo-icon"/>30%</li></Link>
                 </ul>
 
               </li>
@@ -144,9 +144,9 @@ function Menu() {
                 </div>
 
                 <ul className="menu--drawer-list-content-plat-types">
-                  <Link to="/pesquisa"><li><HiOutlineDesktopComputer className="plat-icon"/> PC</li></Link>
-                  <Link to="/pesquisa"><li><FaPlaystation className="plat-icon"/> Playstation</li></Link>
-                  <Link to="/pesquisa"><li><FaXbox className="plat-icon"/> Xbox</li></Link>
+                  <Link to="/pesquisa?platform=0"><li><HiOutlineDesktopComputer className="plat-icon"/> PC</li></Link>
+                  <Link to="/pesquisa?platform=1"><li><FaPlaystation className="plat-icon"/> Playstation</li></Link>
+                  <Link to="/pesquisa?platform=2"><li><FaXbox className="plat-icon"/> Xbox</li></Link>
                 </ul>
 
               </li>
@@ -162,25 +162,25 @@ function Menu() {
                 <ul className="menu--drawer-list-content-genres-types">
                   <li>
                     <ul>
-                      <Link to="/pesquisa"><li>Aventura</li></Link>
-                      <Link to="/pesquisa"><li>Ação</li></Link>
-                      <Link to="/pesquisa"><li>Casual</li></Link>
+                      <Link to="/pesquisa?gender=aventura"><li>Aventura</li></Link>
+                      <Link to="/pesquisa?gender=ação"><li>Ação</li></Link>
+                      <Link to="/pesquisa?gender=casual"><li>Casual</li></Link>
                     </ul>
                   </li>
                   <hr/>
                   <li>
                     <ul>
-                      <Link to="/pesquisa"><li>Corrida</li></Link>
-                      <Link to="/pesquisa"><li>Esporte</li></Link>
-                      <Link to="/pesquisa"><li>Estrategia</li></Link>
+                      <Link to="/pesquisa?gender=corrida"><li>Corrida</li></Link>
+                      <Link to="/pesquisa?gender=esporte"><li>Esporte</li></Link>
+                      <Link to="/pesquisa?gender=estratégia"><li>Estrategia</li></Link>
                     </ul>
                   </li>
                   <hr/>
                   <li>
                     <ul>
-                      <Link to="/pesquisa"><li>Indie</li></Link>
-                      <Link to="/pesquisa"><li>RPG</li></Link>
-                      <Link to="/pesquisa"><li>Terror</li></Link>
+                      <Link to="/pesquisa?gender=indie"><li>Indie</li></Link>
+                      <Link to="/pesquisa?gender=rpg"><li>RPG</li></Link>
+                      <Link to="/pesquisa?gender=simulação"><li>Terror</li></Link>
                     </ul>
                   </li>
                 </ul>

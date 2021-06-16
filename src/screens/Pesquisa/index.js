@@ -3,7 +3,7 @@ import Footer from '../../components/Footer'
 import './styles.scss'
 import JogoItem from '../../components/JogoItem'
 
-import { useLocation } from 'react-router-dom'
+import { useLocation, useHistory, withRouter } from 'react-router-dom'
 import { useEffect, useState } from 'react'; 
 
 import { HiFilter } from 'react-icons/hi'
@@ -15,7 +15,7 @@ function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
 
-function Pesquisa () {
+function Pesquisa ({match}) {
   const query = useQuery();
 
   const [game, setGame] = useState(query.get("jogo") || null);
@@ -23,17 +23,35 @@ function Pesquisa () {
   const [ filtrosVisiveis, setFiltrosVisiveis ] = useState(false);
   const [ page, setPage ] = useState(1);
   const [ count, setCount ] = useState(0);
-  const [ promotion, setPromotion ] = useState(null);
-  const [ platform, setPlatform ] = useState(null);
-  const [ gender, setGender ] = useState(null);
-  const [ order, setOrder ] = useState(null);
+  const [ promotion, setPromotion ] = useState(query.get("promotion") || null);
+  const [ platform, setPlatform ] = useState(query.get("platform") || null);
+  const [ gender, setGender ] = useState(query.get("gender") || null);
+  const [ order, setOrder ] = useState(query.get("order") || null);
 
   function handleCLickFiltrar () {
     setFiltrosVisiveis(!filtrosVisiveis);
   }
 
+  async function getFilters () {
+    const jogo = query.get("jogo")
+    const [ input ] = Array.prototype.slice.call(
+      document.getElementsByClassName('menu--bar-mobile-input')
+    )
+    if (!!jogo) {
+      setGame(jogo)
+    }
+    else {
+      input.value = ""
+      setGame(null)
+    }
+    setPromotion(query.get("promotion") || null)
+    setPlatform(query.get("platform") || null)
+    setGender(query.get("gender") || null)
+    setOrder(query.get("order") || null)
+  }
+
   async function getGames(){
-      try {
+    try {
         const response = await api.get('/game', {
           params: {
             promotion,
@@ -64,7 +82,7 @@ function Pesquisa () {
         case 'gender':
           setGender(value)
         break;
-       
+
         case 'order':
           setOrder(value)
         break;
@@ -88,9 +106,14 @@ function Pesquisa () {
 
   useEffect(()=>{
     getGames();
-  }, [])
-
+  },[])
+  
   useEffect(()=>{
+    getFilters()
+  }, [match])
+
+
+  useEffect(() => {
     getGames();
   }, [promotion, gender, platform, game, order, page])
 
@@ -116,8 +139,8 @@ function Pesquisa () {
           <select name="plataforma" onChange={(e)=>{ handleChangeFilter('platform', e.currentTarget.value) }}>
             <option value="todas" >Todas as plataformas</option>
             <option value="0" >Pc</option>
-            <option value="1" >Xbox</option>
-            <option value="2" >Playstation</option>
+            <option value="1" >Playstation</option>
+            <option value="2" >Xbox</option>
           </select>
         </div>
         <div className="filtro-item">
@@ -149,7 +172,7 @@ function Pesquisa () {
       <div className="jogos-component">
         {
           games.map((jogo)=>{
-            return <JogoItem game={jogo} />
+            return <JogoItem key={jogo.id} game={jogo} />
           })
         }
         <Paginacao 
@@ -165,4 +188,4 @@ function Pesquisa () {
   );
 }
 
-export default Pesquisa;
+export default withRouter(Pesquisa);
