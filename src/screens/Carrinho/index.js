@@ -42,12 +42,16 @@ function Carrinho () {
   async function handleOnClickFinalizarCompra () {
     const userString = localStorage.getItem('user')
 
-    const {user} = JSON.parse(userString)
+    const { user,token } = JSON.parse(userString)
+    console.log(token)
     const response = await api.post('/game/order',{
       user,
       games,
       total,
-      metodoPagamento
+      metodoPagamento,
+    },
+      {
+        headers: { Authorization: `Bearer ${token}` }
     })
     alert(`${response.data.message}, o resumo da compra será enviado para o seu email!!!`);
     localStorage.setItem('carrinho', "[]");
